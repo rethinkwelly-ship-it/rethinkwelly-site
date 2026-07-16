@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Local tooling (Claude Code / Cursor skills, hook caches). Not part of the site.
+.claude/
+.cursor/
+.impeccable/
+.plan/
+
+# Large source images. The site only uses the optimized versions (images/*.jpg),
+# which ARE committed. These originals stay on your disk but are not deployed.
+images/*.png
+images/Welly Background.jpg

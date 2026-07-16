@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReThinkWelly | Te Whanganui-a-Tara, reimagined</title>
+<meta name="description" content="We take the spaces Wellington has forgotten about and show what they could become. Real spaces. Bold ideas. No permission needed. Dream a little.">
+
+<meta property="og:title" content="ReThinkWelly | Wellington, reimagined">
+<meta property="og:description" content="Real spaces. Bold ideas. No permission needed. Dream a little.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rethinkwelly.com">
+<meta property="og:image" content="images/courtenay-after.jpg">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ReThinkWelly landing page  |  single file, brand-matched
+   Brand system taken from @rethinkwelly: serif + sans wordmark
+   lockup, warm brand yellow, te reo Maori voice.
+   TEMPLATE: edit tokens in :root, then copy/images in EDIT HERE blocks.
+   (No em dashes anywhere, by design.)
+   ============================================================ */
+
+/* ===== EDIT HERE: BRAND TOKENS ===== */
+:root{
+  --brand:      #FEE05A;   /* warm brand yellow (sampled from IG) */
+  --brand-deep: #F4C534;   /* deeper amber for hovers */
+  --ink:        #121110;   /* near-black, warm */
+  --ink-2:      #2c2926;
+  --paper:      #ffffff;
+  --paper-2:    #f7f5f0;   /* off-white section (chroma toward brand hue) */
+  --muted:      #57534e;   /* body-secondary, >4.5:1 on white */
+  --muted-dark: #b9b3a7;   /* secondary on dark */
+  --line:       rgba(18,17,16,.14);
+  --line-dark:  rgba(255,255,255,.16);
+  --maxw:       1200px;
+  --prose:      66ch;
+  --radius:     16px;
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:  "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* z-index scale */
+  --z-base:1; --z-badge:5; --z-sticky:100; --z-header:200; --z-stickycta:300;
+  /* motion */
+  --ease: cubic-bezier(.16,1,.3,1);       /* ease-out-expo-ish */
+  --ease-soft: cubic-bezier(.22,.61,.36,1);
+}
+/* ===== END BRAND TOKENS ===== */
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);
+  line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;font-size:clamp(1rem,.96rem + .3vw,1.12rem);
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
+p{margin:0 0 1em;text-wrap:pretty}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+.prose{max-width:var(--prose)}
+
+/* ---------- the wordmark lockup: ReThink (serif) + Welly. (sans bold) ---------- */
+.wm{font-family:var(--serif);font-weight:500;letter-spacing:-.005em;white-space:nowrap;font-style:normal}
+.wm i{font-style:italic;font-weight:500}      /* Re */
+.wm b{font-family:var(--sans);font-weight:800;letter-spacing:-.03em}  /* Welly. */
+
+/* serif accent word inside a sans heading (brand signature move) */
+.ser{font-family:var(--serif);font-weight:500;font-style:italic;letter-spacing:0;}
+
+/* ---------- buttons ---------- */
+.btn{
+  --bg:var(--ink);--fg:var(--paper);
+  display:inline-flex;align-items:center;gap:.5em;font-family:var(--sans);
+  background:var(--bg);color:var(--fg);text-decoration:none;font-weight:700;
+  padding:.85em 1.4em;border-radius:100px;border:2px solid var(--ink);
+  font-size:clamp(.95rem,1.4vw,1.02rem);cursor:pointer;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .2s, color .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.16)}
+.btn:active{transform:translateY(0)}
+.btn--brand{--bg:var(--brand);--fg:var(--ink);border-color:var(--ink)}
+.btn--brand:hover{--bg:var(--brand-deep)}
+.btn--ghost{--bg:transparent;--fg:var(--ink)}
+.btn--ghost.on-dark{--fg:var(--paper);border-color:var(--line-dark)}
+.btn--ghost.on-dark:hover{--bg:rgba(255,255,255,.08)}
+.btn--lg{padding:1em 1.7em;font-size:clamp(1rem,1.8vw,1.15rem)}
+
+/* ---------- social link-outs ---------- */
+.socials{display:inline-flex;gap:9px;align-items:center}
+.socials a{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;
+  border:1.5px solid currentColor;color:var(--ink);text-decoration:none;
+  transition:transform .3s var(--ease), background .2s, color .2s, border-color .2s}
+.socials a:hover{transform:translateY(-3px);background:var(--brand);border-color:var(--ink);color:var(--ink)}
+.socials.on-dark a{color:var(--paper)}
+.socials.on-dark a:hover{color:var(--ink);border-color:var(--brand)}
+.socials svg{width:19px;height:19px;fill:currentColor}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:var(--z-header);
+  background:rgba(255,255,255,.86);backdrop-filter:blur(12px) saturate(1.1);
+  border-bottom:1px solid transparent;transition:border-color .3s, box-shadow .3s}
+header.scrolled{border-color:var(--line);box-shadow:0 4px 22px rgba(0,0,0,.05)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{text-decoration:none;color:var(--ink);font-size:1.42rem;display:inline-flex;align-items:center;gap:10px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--brand);border:1.5px solid var(--ink);flex:none}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav .socials a{width:40px;height:40px}
+@media(max-width:680px){.nav .socials{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;color:var(--paper);background:var(--ink);isolation:isolate;overflow:hidden;
+  min-height:min(92vh,880px);display:flex;align-items:flex-end;padding-bottom:clamp(48px,7vw,88px)}
+.hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(18,17,16,.66) 0%,rgba(18,17,16,.34) 44%,rgba(18,17,16,.06) 68%,transparent 82%),
+    linear-gradient(180deg,rgba(18,17,16,.34) 0%,rgba(18,17,16,.12) 32%,rgba(18,17,16,.66) 74%,rgba(18,17,16,.94) 100%)}
+.hero .lede{text-shadow:0 1px 18px rgba(18,17,16,.35)}
+.hero .kicker{font-weight:600;letter-spacing:.02em;font-size:clamp(.95rem,1.6vw,1.15rem);color:var(--brand);margin-bottom:.7em}
+.hero .kicker .ser{color:#fff}
+.hero h1{font-size:clamp(2.5rem,7vw,5.6rem);letter-spacing:-.035em;max-width:15ch;line-height:.98}
+.hero h1 .ser{color:var(--brand);letter-spacing:-.01em}
+.hero .lede{font-size:clamp(1.08rem,2vw,1.4rem);max-width:46ch;color:#f1ede6;margin-top:1.1em;line-height:1.5}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:1.9em}
+.hero .tagline{margin-top:1.8em;font-size:clamp(1.05rem,2vw,1.35rem);font-weight:600}
+.hero .tagline b{color:var(--brand);font-weight:800}
+.hero .hero-social{margin-top:1.5em}
+
+/* ---------- section rhythm ---------- */
+section{padding:clamp(64px,9vw,132px) 0}
+.h2{font-size:clamp(1.9rem,5vw,3.5rem);letter-spacing:-.03em;max-width:17ch;line-height:1.0}
+.lead{font-size:clamp(1.1rem,1.8vw,1.32rem);color:var(--muted);margin-top:1.1em;max-width:var(--prose)}
+
+/* ---------- mission ---------- */
+.mission{background:var(--paper)}
+.mission .h2 .ser{color:var(--ink)}
+.mission .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:start}
+@media(max-width:840px){.mission .cols{grid-template-columns:1fr;gap:28px}}
+.mission .body p{color:var(--ink-2);font-size:clamp(1.02rem,1.5vw,1.16rem)}
+.pull{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.4rem,3vw,2.1rem);
+  line-height:1.28;color:var(--ink);letter-spacing:-.01em;border-top:2px solid var(--ink);padding-top:1rem}
+.pull b{font-family:var(--sans);font-style:normal;font-weight:800;background:var(--brand);padding:0 .12em;border-radius:3px}
+
+/* ---------- how it works ---------- */
+.how{background:var(--ink);color:var(--paper)}
+.how .h2{color:var(--paper)}
+.how .lead{color:var(--muted-dark)}
+.how .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,30px);margin-top:clamp(36px,5vw,60px)}
+@media(max-width:820px){.how .steps{grid-template-columns:1fr}}
+.step{border-top:2px solid var(--brand);padding-top:20px}
+.step .num{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--brand);line-height:1;margin-bottom:.5rem;display:block}
+.step h3{font-size:1.4rem;letter-spacing:-.02em;margin-bottom:.4em}
+.step p{color:var(--muted-dark);margin:0}
+.how .aside{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--line-dark);padding-top:28px;
+  display:flex;flex-wrap:wrap;gap:16px 40px;align-items:baseline}
+.how .aside .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3.4vw,2.4rem);color:#fff;letter-spacing:-.01em;max-width:20ch}
+
+/* ---------- gallery (centrepiece) ---------- */
+.gallery{background:var(--paper-2)}
+.gallery-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px}
+.ba-list{margin-top:clamp(36px,5vw,64px);display:grid;gap:clamp(36px,6vw,80px)}
+.ba-item{display:grid;grid-template-columns:1fr;gap:20px}
+.ba-figure{margin:0}
+.ba{position:relative;aspect-ratio:16/9;user-select:none;touch-action:pan-y;overflow:hidden;cursor:ew-resize;
+  border-radius:var(--radius);box-shadow:0 24px 60px -28px rgba(0,0,0,.4);background:#ccc}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after-img{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:var(--paper);transform:translateX(-1.5px);box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.ba .grip{position:absolute;top:50%;left:var(--pos,50%);transform:translate(-50%,-50%);
+  width:54px;height:54px;border-radius:50%;background:var(--brand);border:2px solid var(--ink);
+  display:grid;place-items:center;color:var(--ink);box-shadow:0 8px 22px rgba(0,0,0,.32);transition:transform .25s var(--ease)}
+.ba:hover .grip{transform:translate(-50%,-50%) scale(1.06)}
+.ba .grip svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ba .tag{position:absolute;top:16px;padding:.34em .82em;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.ba .tag.before{left:16px;background:rgba(18,17,16,.72);color:#fff;backdrop-filter:blur(3px)}
+.ba .tag.after{right:16px;background:var(--brand);color:var(--ink)}
+.ba:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.ba-cap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.ba-cap .loc{font-family:var(--sans);font-weight:800;font-size:clamp(1.2rem,2.4vw,1.6rem);letter-spacing:-.02em}
+.ba-cap .desc{color:var(--muted);font-size:1.02rem}
+.ba-cap .idx{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:1.1rem}
+/* feature the first item larger */
+@media(min-width:861px){
+  .ba-item.feature .ba{aspect-ratio:2/1}
+}
+
+/* ---------- instagram ---------- */
+.ig{background:var(--ink);color:var(--paper);overflow:hidden}
+.ig .h2{color:var(--paper)}
+.ig-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:22px}
+.ig-head .lead{color:var(--muted-dark)}
+.ig-link{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;
+  color:var(--ink);background:var(--brand);padding:.7em 1.2em;border-radius:100px;
+  transition:transform .3s var(--ease), background .2s;flex:none}
+.ig-link:hover{transform:translateY(-2px);background:var(--brand-deep)}
+.ig-link svg{width:20px;height:20px;fill:currentColor}
+.ig-embed{margin-top:clamp(30px,4vw,48px)}
+.carousel{position:relative;margin-top:clamp(30px,4vw,48px)}
+.viewport{overflow:hidden;border-radius:var(--radius)}
+.track{display:flex;transition:transform .7s var(--ease)}
+.slide{flex:0 0 33.333%;padding:7px}
+@media(max-width:900px){.slide{flex-basis:50%}}
+@media(max-width:560px){.slide{flex-basis:82%}}
+.slide figure{margin:0;position:relative;border-radius:12px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.slide img{aspect-ratio:1/1;object-fit:cover;width:100%;transition:transform .6s var(--ease)}
+.slide figure:hover img{transform:scale(1.05)}
+.slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;
+  background:linear-gradient(transparent,rgba(18,17,16,.82));color:#fff;font-size:.9rem;font-weight:600}
+.dots{display:flex;gap:9px;justify-content:center;margin-top:24px}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
+  background:rgba(255,255,255,.34);transition:transform .3s var(--ease), background .3s}
+.dots button[aria-current="true"]{background:var(--brand);transform:scale(1.4)}
+.ig-note{margin-top:22px;color:var(--muted-dark);font-size:.92rem;text-align:center}
+.ig-note b{color:#fff;font-weight:700;letter-spacing:.06em}
+/* SWAP POINT: replace the .carousel block with a Behold/SnapWidget embed for the live feed. See README. */
+
+/* ---------- submit / get involved ---------- */
+.cta{background:var(--brand);color:var(--ink)}
+.cta .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,72px);align-items:start}
+@media(max-width:860px){.cta .grid{grid-template-columns:1fr}}
+.cta .h2{max-width:15ch}
+.cta .h2 .ser{color:var(--ink)}
+.cta .lead{color:var(--ink-2)}
+.waka{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.3rem,2.6vw,1.8rem);
+  margin-top:1.2em;line-height:1.3}
+.segs{margin-top:1em;font-weight:700;line-height:1.9}
+.segs a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;white-space:nowrap}
+.segs a:hover{background:var(--ink);color:var(--brand)}
+form.submit{background:var(--paper);border-radius:var(--radius);padding:clamp(22px,3.5vw,34px);
+  border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:700;margin-bottom:6px;font-size:.96rem}
+.field input,.field textarea{width:100%;font:inherit;padding:.8em .95em;border:2px solid var(--ink);
+  border-radius:11px;background:var(--paper);color:var(--ink)}
+.field textarea{min-height:82px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#6b665f}
+.field input:focus,.field textarea:focus{outline:3px solid var(--brand-deep);outline-offset:1px}
+form.submit .btn{width:100%;justify-content:center;margin-top:4px}
+.form-note{font-size:.86rem;color:var(--muted);margin:12px 0 0;text-align:center}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}   /* honeypot, hidden from people */
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 40px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px}
+.foot-wm{font-size:clamp(2.6rem,8vw,5.2rem);line-height:.9}
+.foot-wm .wm b{color:var(--brand)}
+.foot-sub{color:var(--brand);font-weight:600;letter-spacing:.02em;margin-top:.6em}
+.foot-tag{color:#d8d3ca;max-width:44ch;margin-top:1.1em}
+.foot-social{margin-top:1.6em}
+.foot-social .socials a{width:50px;height:50px}
+.foot-social .socials svg{width:23px;height:23px}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  border-top:1px solid var(--line-dark);margin-top:clamp(40px,6vw,64px);padding-top:24px;color:#9c968b;font-size:.9rem}
+.foot-bottom a{color:#d8d3ca;text-decoration:none}
+.foot-bottom .sep{color:var(--brand)}
+
+/* ---------- mobile sticky CTA ---------- */
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:var(--z-stickycta);display:none;
+  transform:translateY(150%);transition:transform .4s var(--ease)}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .btn{width:100%;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.22)}
+@media(max-width:720px){.sticky-cta{display:block} footer{padding-bottom:104px}}
+
+/* ---------- reveal (progressive: only when JS present; content visible by default) ---------- */
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .reveal.d1{transition-delay:.09s}
+html.js .reveal.d2{transition-delay:.18s}
+html.js .reveal.d3{transition-delay:.27s}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  html.js .reveal{opacity:1;transform:none}
+  .track{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="wrap nav">
+    <!-- ===== EDIT HERE: wordmark ===== -->
+    <a class="brand" href="#top" aria-label="ReThinkWelly home">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="wm"><i>Re</i>Think<b>Welly.</b></span>
+    </a>
+    <div class="nav-right">
+      <!-- ===== EDIT HERE: social link-outs ===== -->
+      <div class="socials" aria-label="Social links">
+        <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener" aria-label="ReThinkWelly on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+        <a href="https://www.linkedin.com/company/rethinkwelly" target="_blank" rel="noopener" aria-label="ReThinkWelly on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21h-4V9Z"/></svg></a>
+        <a href="mailto:rethinkwelly@gmail.com" aria-label="Email ReThinkWelly" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm.4 2 8.6 6 8.6-6H3.4ZM20 8.3l-8 5.6-8-5.6V17h16V8.3Z"/></svg></a>
+      </div>
+      <a class="btn btn--brand" href="#submit">Submit a space</a>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <img class="hero-bg" src="images/welly-hero.jpg" alt="The Wellington Cable Car climbing above the harbour and city, Te Whanganui-a-Tara" fetchpriority="high">
+
+  <div class="wrap">
+    <!-- ===== EDIT HERE: hero copy ===== -->
+    <p class="kicker"><span class="ser">Kia ora.</span> Welcome to Te Whanganui-a-Tara, reimagined.</p>
+    <h1>What if Wellington looked a little <span class="ser">different?</span></h1>
+    <p class="lede">Not a little tidier. Not a little safer. A little bolder. A little more alive. We take the empty lots, the underused carparks and the streets that could be so much more, and we show what they could become.</p>
+    <div class="cta-row">
+      <a class="btn btn--brand btn--lg" href="#submit">Submit a space</a>
+      <a class="btn btn--ghost btn--lg on-dark" href="#gallery">See the vision</a>
+    </div>
+    <p class="tagline">Dream a little. <b>#ReThinkWelly</b></p>
+    <div class="hero-social socials on-dark" aria-label="Social links">
+      <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+      <a href="https://www.linkedin.com/company/rethinkwelly" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21h-4V9Z"/></svg></a>
+      <a href="mailto:rethinkwelly@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm.4 2 8.6 6 8.6-6H3.4ZM20 8.3l-8 5.6-8-5.6V17h16V8.3Z"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="mission">
+  <div class="wrap cols">
+    <div class="reveal">
+      <h2 class="h2">One of the most loveable cities on the planet. Let's be <span class="ser">honest</span> with it too.</h2>
+      <p class="waka" style="color:var(--muted);font-size:clamp(1.05rem,1.6vw,1.2rem);margin-top:1em">Anyone who has ever lived in Te Whanganui-a-Tara knows it. But loving a city means being honest with it too.</p>
+    </div>
+    <div class="body reveal d1">
+      <p>We have gaps in our urban fabric that have sat empty for years. Streets designed for cars, not people. A public conversation that too often defaults to blame instead of vision.</p>
+      <p>ReThinkWelly exists to change that conversation. We take real Wellington spaces and reimagine what they could become, to inspire the council, challenge developers, and start conversations.</p>
+      <p class="pull">To show, visually and <b>undeniably</b>, what this city could be when we stop accepting and start dreaming.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how">
+  <div class="wrap">
+    <h2 class="h2 reveal">Real spaces. Bold ideas. <span class="ser" style="color:var(--brand)">No permission</span> needed.</h2>
+    <p class="lead reveal">We identify underutilised or neglected spaces across the city, then use AI to render what they could become. The results get shared publicly, for people to react to, build on, and push further.</p>
+    <div class="steps">
+      <!-- ===== EDIT HERE: steps ===== -->
+      <div class="step reveal"><span class="num">01</span><h3>Spot a space</h3><p>An empty section on a busy street. A carpark where a laneway could be. A building crying out for something new.</p></div>
+      <div class="step reveal d1"><span class="num">02</span><h3>Render the future</h3><p>We use AI to visualise what each space could become. Bold, specific, and grounded in the real fabric of Wellington.</p></div>
+      <div class="step reveal d2"><span class="num">03</span><h3>Start the conversation</h3><p>The vision goes public, on social and here, out into the world for the city to react to and take further.</p></div>
+    </div>
+    <div class="aside reveal">
+      <p class="big">No $50k brief. No council approval. Just a question: <span style="color:var(--brand)">what could this space actually be?</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY (centrepiece) ============ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div class="reveal">
+        <h2 class="h2">Wellington, <span class="ser">reimagined.</span></h2>
+        <p class="lead">Real spaces. Real streets. Real opportunities our city has not seized, yet. Every image starts with a photograph and a question. Drag to reveal the answer.</p>
+      </div>
+    </div>
+    <!-- ===== EDIT HERE: before/after pairs ===== -->
+    <div class="ba-list">
+      <div class="ba-item feature reveal">
+        <figure class="ba-figure">
+          <div class="ba" tabindex="0" role="slider" aria-label="Before and after: 134 Courtenay Place" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="before-img" src="images/courtenay-before.jpg" alt="134 Courtenay Place today: a grey intersection with tired buildings">
+            <img class="after-img"  src="images/courtenay-after.jpg"  alt="134 Courtenay Place reimagined: restored heritage frontages, warm street-level life at golden hour">
+            <span class="tag before">Before</span><span class="tag after">After</span>
+            <div class="handle"></div>
+            <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
+          </div>
+        </figure>
+        <figcaption class="ba-cap"><span class="loc">134 Courtenay Place</span><span class="desc">A grey corner becomes a warm, living street frontage.</span></figcaption>
+      </div>
+
+      <div class="ba-item reveal">
+        <figure class="ba-figure">
+          <div class="ba" tabindex="0" role="slider" aria-label="Before and after: Hnry Stadium" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="before-img" src="images/hnry-before.jpg" alt="Hnry Stadium today: an open-air arena exposed to Wellington weather">
+            <img class="after-img"  src="images/hnry-after.jpg"  alt="Hnry Stadium reimagined: a sweeping glass roof over the arena">
+            <span class="tag before">Before</span><span class="tag after">After</span>
+            <div class="handle"></div>
+            <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
+          </div>
+        </figure>
+        <figcaption class="ba-cap"><span class="loc">Hnry Stadium</span><span class="desc">A roof over the Cake Tin, so the game plays on in any weather.</span></figcaption>
+      </div>
+
+      <div class="ba-item reveal">
+        <figure class="ba-figure">
+          <div class="ba" tabindex="0" role="slider" aria-label="Before and after: Left Bank, Cuba Street" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img class="before-img" src="images/leftbank-before.jpg" alt="Left Bank on Cuba Street today: a tired laneway with vacancy signs">
+            <img class="after-img"  src="images/leftbank-after.jpg"  alt="Left Bank on Cuba Street reimagined: a lantern-lit laneway alive with people and food">
+            <span class="tag before">Before</span><span class="tag after">After</span>
+            <div class="handle"></div>
+            <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
+          </div>
+        </figure>
+        <figcaption class="ba-cap"><span class="loc">Left Bank, Cuba Street</span><span class="desc">A forgotten laneway turns into a lantern-lit place to linger.</span></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="ig" id="instagram">
+  <div class="wrap">
+    <div class="ig-head">
+      <div class="reveal">
+        <h2 class="h2">See it as it <span class="ser" style="color:var(--brand)">happens.</span></h2>
+        <p class="lead">Reimagining Te Whanganui-a-Tara through the lens of our community. We showcase opportunities hiding in plain sight. Share your ideas and DM to be featured.</p>
+      </div>
+      <a class="ig-link reveal" href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg>
+        @rethinkwelly
+      </a>
+    </div>
+
+    <!-- ============ INSTAGRAM FEED: live @rethinkwelly via Behold ============
+         Style the layout (grid/carousel, gaps, rows) from the Behold dashboard.
+         To change accounts, swap the feed-id below for the new feed's ID. -->
+    <div class="ig-embed reveal">
+      <behold-widget feed-id="HHxScaNkl0G6g5LczZbP"></behold-widget>
+      <script>
+        (() => {
+          if(window.__bhldScript)return;window.__bhldScript=true;
+          const d=document,s=d.createElement("script");s.type="module";
+          s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+        })();
+      </script>
+    </div>
+    <p class="ig-note"><b>JOIN THE WAKA.</b> Share your ideas. Follow along at @rethinkwelly.</p>
+  </div>
+</section>
+
+<!-- ============ SUBMIT / GET INVOLVED ============ -->
+<section class="cta" id="submit">
+  <div class="wrap grid">
+    <div class="reveal">
+      <h2 class="h2">See a space Wellington is <span class="ser">wasting?</span></h2>
+      <p class="lead">You probably walk past it every day. You do not need a grand vision for it. Just point us in the right direction and we will take it from there.</p>
+      <p class="waka">The waka is moving. Everyone is welcome on board.</p>
+      <p class="segs">Get involved as a
+        <a href="mailto:rethinkwelly@gmail.com?subject=For%20Creatives">Creative</a>,
+        <a href="mailto:rethinkwelly@gmail.com?subject=For%20Businesses">Business</a>,
+        <a href="mailto:rethinkwelly@gmail.com?subject=For%20Developers%20%26%20Industry">Developer</a>, or
+        <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">Local</a>.
+      </p>
+    </div>
+
+    <!-- Netlify Forms: submissions land in your Netlify dashboard under Forms.
+         The honeypot field below quietly filters bots. -->
+    <form class="submit reveal d1" id="submitForm" name="submit-a-space" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="submit-a-space">
+      <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field">
+        <label for="where">Where is it?</label>
+        <input id="where" name="where" type="text" placeholder="Street, suburb or a rough location" required>
+      </div>
+      <div class="field">
+        <label for="what">What is there now?</label>
+        <input id="what" name="what" type="text" placeholder="An empty lot, a carpark, a tired corner" required>
+      </div>
+      <div class="field">
+        <label for="why">Why does it stand out to you?</label>
+        <textarea id="why" name="why" placeholder="A sentence is plenty" required></textarea>
+      </div>
+      <div class="field">
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+      <button class="btn btn--brand btn--lg" type="submit">Send it in</button>
+      <p class="form-note">Every big idea starts with someone noticing something others walked past.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="reveal">
+        <div class="foot-wm"><span class="wm"><i>Re</i>Think<b>Welly.</b></span></div>
+        <p class="foot-sub">Urban Futures &#183; Te Whanganui-a-Tara</p>
+        <p class="foot-tag">Ideas for shaping the future of Aotearoa's capital city. Stop accepting Wellington as it is. Start imagining what it could be. Dream a little.</p>
+      </div>
+      <div class="foot-social reveal d1">
+        <div class="socials on-dark" aria-label="Social links">
+          <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+          <a href="https://www.linkedin.com/company/rethinkwelly" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21h-4V9Z"/></svg></a>
+          <a href="mailto:rethinkwelly@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm.4 2 8.6 6 8.6-6H3.4ZM20 8.3l-8 5.6-8-5.6V17h16V8.3Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> ReThinkWelly <span class="sep">&#183;</span> Since 2026</span>
+      <span><a href="https://rethinkwelly.com">rethinkwelly.com</a> <span class="sep">&#183;</span> <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">@rethinkwelly</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="#submit">Submit a space</a></div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* header shadow */
+  var header = document.getElementById("header");
+  var onScroll = function(){ header.classList.toggle("scrolled", window.scrollY > 8); };
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  /* reveal on scroll. Safety net guarantees content is never left hidden if
+     the observer never fires (hidden tab, headless renderer, older browser). */
+  var reveals = [].slice.call(document.querySelectorAll(".reveal"));
+  var revealAll = function(){ reveals.forEach(function(el){ el.classList.add("in"); }); };
+  if (!reduce && "IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:"0px 0px -6% 0px"});
+    reveals.forEach(function(el){ io.observe(el); });
+    setTimeout(revealAll, 2600);                 /* fail-safe: never stay hidden */
+  } else {
+    revealAll();
+  }
+
+  /* before / after sliders */
+  document.querySelectorAll(".ba").forEach(function(ba){
+    var set = function(pct){
+      pct = Math.max(0, Math.min(100, pct));
+      ba.style.setProperty("--pos", pct + "%");
+      ba.setAttribute("aria-valuenow", Math.round(pct));
+    };
+    set(50);
+    var dragging = false;
+    var fromX = function(clientX){ var r = ba.getBoundingClientRect(); set(((clientX - r.left)/r.width)*100); };
+    ba.addEventListener("pointerdown", function(e){ dragging = true; ba.setPointerCapture(e.pointerId); fromX(e.clientX); });
+    ba.addEventListener("pointermove", function(e){ if(dragging) fromX(e.clientX); });
+    ba.addEventListener("pointerup", function(){ dragging = false; });
+    ba.addEventListener("pointercancel", function(){ dragging = false; });
+    ba.addEventListener("keydown", function(e){
+      var now = parseFloat(ba.getAttribute("aria-valuenow")) || 50;
+      if (e.key === "ArrowLeft"){ set(now-4); e.preventDefault(); }
+      else if (e.key === "ArrowRight"){ set(now+4); e.preventDefault(); }
+      else if (e.key === "Home"){ set(0); e.preventDefault(); }
+      else if (e.key === "End"){ set(100); e.preventDefault(); }
+    });
+  });
+
+  /* Instagram feed is the Behold widget (self-contained). No JS needed here. */
+
+  /* mobile sticky CTA after hero */
+  var sticky = document.getElementById("stickyCta");
+  var hero = document.querySelector(".hero");
+  if (sticky && hero && "IntersectionObserver" in window){
+    var sio = new IntersectionObserver(function(en){ en.forEach(function(e){ sticky.classList.toggle("show", !e.isIntersecting); }); }, {threshold:0});
+    sio.observe(hero);
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
