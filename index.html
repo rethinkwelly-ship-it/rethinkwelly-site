@@ -270,9 +270,11 @@ form.submit .btn{width:100%;justify-content:center;margin-top:4px}
 
 /* ---------- join the collective ---------- */
 .collective-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,3vw,28px);margin-top:clamp(36px,5vw,56px)}
-.collective-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:clamp(22px,3vw,28px)}
-.collective-card .role{display:inline-block;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;background:var(--brand);color:var(--ink);padding:.3em .7em;border-radius:100px;margin-bottom:14px}
+.collective-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:clamp(24px,3.5vw,32px);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.collective-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px -18px rgba(0,0,0,.28)}
+.collective-card .role{display:block;font-family:var(--sans);font-weight:800;font-size:clamp(1.05rem,1.6vw,1.18rem);letter-spacing:-.01em;color:var(--ink);margin:0 0 16px;padding-bottom:14px;border-bottom:2px solid var(--brand)}
 .collective-card .quote{font-family:var(--serif);font-style:italic;font-size:1.08rem;line-height:1.5;color:var(--ink-2);margin:0}
+.collective-card .quote::before{content:"\201C";display:inline-block;font-family:var(--serif);font-style:normal;font-weight:700;color:var(--brand-deep);font-size:1.6em;line-height:0;vertical-align:-.32em;margin-right:.03em}
 
 /* ---------- dynamic get-involved form ---------- */
 .field select{width:100%;font:inherit;padding:.8em .95em;border:2px solid var(--ink);border-radius:11px;background:var(--paper);color:var(--ink)}
@@ -522,19 +524,19 @@ html.js .reveal.d3{transition-delay:.27s}
     <div class="collective-grid">
       <div class="collective-card reveal">
         <span class="role">For Locals</span>
-        <p class="quote">&ldquo;You walk past these spaces every day. Share your ideas: you do not need a grand vision, just point us toward a site that deserves better.&rdquo;</p>
+        <p class="quote">You walk past these spaces every day. Share your ideas: you do not need a grand vision, just point us toward a site that deserves better.</p>
       </div>
       <div class="collective-card reveal d1">
         <span class="role">For Creatives &amp; Architects</span>
-        <p class="quote">&ldquo;Bring your skills, your imagination, and your boldest design concepts to help us make the future of Wellington visible.&rdquo;</p>
+        <p class="quote">Bring your skills, your imagination, and your boldest design concepts to help us make the future of Wellington visible.</p>
       </div>
       <div class="collective-card reveal d2">
         <span class="role">For Businesses &amp; Developers</span>
-        <p class="quote">&ldquo;Foot traffic follows beauty. Partner with us to see what iconic, people-first development could unlock for your neighbourhood.&rdquo;</p>
+        <p class="quote">Foot traffic follows beauty. Partner with us to see what iconic, people-first development could unlock for your neighbourhood.</p>
       </div>
       <div class="collective-card reveal d3">
         <span class="role">For Council &amp; Planners</span>
-        <p class="quote">&ldquo;Let us help you start the conversation early. Use our community-driven concepts to build public momentum for bolder planning decisions.&rdquo;</p>
+        <p class="quote">Let us help you start the conversation early. Use our community-driven concepts to build public momentum for bolder planning decisions.</p>
       </div>
     </div>
   </div>
@@ -636,7 +638,7 @@ html.js .reveal.d3{transition-delay:.27s}
       <div class="reveal">
         <div class="foot-wm"><span class="wm"><i>Re</i>Think<b>Welly.</b></span></div>
         <p class="foot-sub">Urban Futures &#183; Te Whanganui-a-Tara</p>
-        <p class="foot-tag">Ideas for shaping the future of Aotearoa's capital city. Stop accepting Wellington as it is. Start imagining what it could be. <b>#ReThinkWelly</b> &#127961;&#65039;&#10024;</p>
+        <p class="foot-tag">Ideas for shaping the future of Aotearoa's capital city. Stop accepting Wellington as it is. Start imagining what it could be. <b>#ReThinkWelly</b></p>
       </div>
       <div class="foot-social reveal d1">
         <div class="socials on-dark" aria-label="Social links">
