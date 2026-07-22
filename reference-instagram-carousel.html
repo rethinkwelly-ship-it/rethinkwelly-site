@@ -1,0 +1,96 @@
+<!-- ============================================================
+     REUSABLE: self-contained auto-rotating Instagram-style carousel
+     Drop-in for a single-file landing page. No dependencies, no account
+     access needed. Populate the slides with cropped screenshots of the
+     business's real Instagram posts (square 1:1 looks best).
+
+     Great for SPEC / pitch builds: shows "what's possible" using their
+     own content. When the client signs, swap this whole block for a live
+     Behold embed (behold.so) so it auto-syncs new posts.
+
+     Uses CSS vars --brand (accent) and --ink (dark) if present; falls back
+     otherwise. Respects prefers-reduced-motion.
+     ============================================================ -->
+
+<style>
+  .ig-carousel{position:relative;margin-top:clamp(28px,4vw,48px)}
+  .ig-carousel .viewport{overflow:hidden;border-radius:16px}
+  .ig-carousel .track{display:flex;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+  .ig-carousel .slide{flex:0 0 33.333%;padding:7px}
+  @media(max-width:900px){.ig-carousel .slide{flex-basis:50%}}
+  @media(max-width:560px){.ig-carousel .slide{flex-basis:82%}}
+  .ig-carousel figure{margin:0;position:relative;border-radius:12px;overflow:hidden;
+    box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+  .ig-carousel img{aspect-ratio:1/1;object-fit:cover;width:100%;display:block;
+    transition:transform .6s cubic-bezier(.16,1,.3,1)}
+  .ig-carousel figure:hover img{transform:scale(1.05)}
+  .ig-carousel figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;
+    background:linear-gradient(transparent,rgba(10,10,10,.82));color:#fff;font-size:.9rem;font-weight:600}
+  .ig-dots{display:flex;gap:9px;justify-content:center;margin-top:22px}
+  .ig-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
+    background:rgba(120,120,120,.4);transition:transform .3s, background .3s}
+  .ig-dots button[aria-current="true"]{background:var(--brand,#FEE05A);transform:scale(1.4)}
+  @media(prefers-reduced-motion:reduce){
+    .ig-carousel .track{transition:none}
+    .ig-carousel figure:hover img{transform:none}
+  }
+</style>
+
+<!-- ===== markup: swap the img src / captions for their real posts ===== -->
+<div class="ig-carousel" id="igCarousel" aria-roledescription="carousel" aria-label="Recent posts from Instagram">
+  <div class="viewport">
+    <div class="track" id="igTrack">
+      <div class="slide"><figure><img src="images/ig-1.jpg" alt="Instagram post 1" loading="lazy"><figcaption>Caption 1</figcaption></figure></div>
+      <div class="slide"><figure><img src="images/ig-2.jpg" alt="Instagram post 2" loading="lazy"><figcaption>Caption 2</figcaption></figure></div>
+      <div class="slide"><figure><img src="images/ig-3.jpg" alt="Instagram post 3" loading="lazy"><figcaption>Caption 3</figcaption></figure></div>
+      <div class="slide"><figure><img src="images/ig-4.jpg" alt="Instagram post 4" loading="lazy"><figcaption>Caption 4</figcaption></figure></div>
+      <div class="slide"><figure><img src="images/ig-5.jpg" alt="Instagram post 5" loading="lazy"><figcaption>Caption 5</figcaption></figure></div>
+      <div class="slide"><figure><img src="images/ig-6.jpg" alt="Instagram post 6" loading="lazy"><figcaption>Caption 6</figcaption></figure></div>
+    </div>
+  </div>
+  <div class="ig-dots" id="igDots" role="tablist" aria-label="Choose slide"></div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var track = document.getElementById("igTrack");
+  var wrap  = document.getElementById("igCarousel");
+  var dots  = document.getElementById("igDots");
+  if(!track || !wrap) return;
+  var slides = track.children.length;
+  var perView = function(){ var w = innerWidth; return w<=560?1:(w<=900?2:3); };
+  var index = 0, timer = null;
+  var maxIndex = function(){ return Math.max(0, slides - perView()); };
+  function build(){
+    dots.innerHTML = "";
+    for(var i=0;i<=maxIndex();i++){ (function(i){
+      var b=document.createElement("button");
+      b.setAttribute("role","tab"); b.setAttribute("aria-label","Go to slide "+(i+1));
+      b.onclick=function(){ go(i,true); };
+      dots.appendChild(b);
+    })(i); }
+  }
+  function render(){
+    track.style.transform = "translateX("+(-(index*(100/perView())))+"%)";
+    [].forEach.call(dots.children,function(d,i){ d.setAttribute("aria-current", i===index?"true":"false"); });
+  }
+  function go(i,user){ index=Math.max(0,Math.min(maxIndex(),i)); render(); if(user) restart(); }
+  function next(){ index = index>=maxIndex()?0:index+1; render(); }
+  function start(){ if(!reduce) timer=setInterval(next,4200); }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  function restart(){ stop(); start(); }
+  build(); render(); start();
+  wrap.addEventListener("mouseenter",stop);
+  wrap.addEventListener("mouseleave",start);
+  var x0=null;
+  wrap.addEventListener("touchstart",function(e){ x0=e.touches[0].clientX; stop(); },{passive:true});
+  wrap.addEventListener("touchend",function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>40) go(index+(dx<0?1:-1),true);
+    x0=null; start();
+  },{passive:true});
+  var rt; addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(function(){ build(); go(index); },150); });
+})();
+</script>

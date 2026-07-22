@@ -254,6 +254,34 @@ form.submit .btn{width:100%;justify-content:center;margin-top:4px}
 .form-note{font-size:.86rem;color:var(--muted);margin:12px 0 0;text-align:center}
 .hp{position:absolute;left:-9999px;height:0;overflow:hidden}   /* honeypot, hidden from people */
 
+/* ---------- shared accent highlight (safe on any background) ---------- */
+.hl{background:var(--brand);color:var(--ink);padding:.05em .2em;border-radius:4px;font-weight:800;font-style:normal}
+
+/* ---------- gallery: prompt line under each slider ---------- */
+.ba-prompt{margin-top:4px;font-family:var(--serif);font-style:italic;color:var(--ink-2);font-size:1.02rem}
+
+/* ---------- roadmap ---------- */
+#roadmap{background:var(--paper)}
+.roadmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(28px,4vw,44px);margin-top:clamp(36px,5vw,56px)}
+.ri-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--brand);color:var(--ink);margin-bottom:18px}
+.ri-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.roadmap-item h3{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:.4em}
+.roadmap-item p{color:var(--muted);margin:0}
+
+/* ---------- join the collective ---------- */
+.collective-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,3vw,28px);margin-top:clamp(36px,5vw,56px)}
+.collective-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:clamp(22px,3vw,28px)}
+.collective-card .role{display:inline-block;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;background:var(--brand);color:var(--ink);padding:.3em .7em;border-radius:100px;margin-bottom:14px}
+.collective-card .quote{font-family:var(--serif);font-style:italic;font-size:1.08rem;line-height:1.5;color:var(--ink-2);margin:0}
+
+/* ---------- dynamic get-involved form ---------- */
+.field select{width:100%;font:inherit;padding:.8em .95em;border:2px solid var(--ink);border-radius:11px;background:var(--paper);color:var(--ink)}
+.field-group{margin-top:4px}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none !important;box-shadow:none !important}
+
+/* ---------- footer accent ---------- */
+.foot-tag b{color:var(--brand)}
+
 /* ---------- footer ---------- */
 footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 40px}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px}
@@ -307,7 +335,7 @@ html.js .reveal.d3{transition-delay:.27s}
         <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener" aria-label="ReThinkWelly on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
         <a href="https://www.linkedin.com/company/rethinkwelly" target="_blank" rel="noopener" aria-label="ReThinkWelly on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21h-4V9Z"/></svg></a>
       </div>
-      <a class="btn btn--brand" href="#submit">Submit a space</a>
+      <a class="btn btn--brand" href="#submit">Get Involved</a>
     </div>
   </div>
 </header>
@@ -322,9 +350,9 @@ html.js .reveal.d3{transition-delay:.27s}
     <!-- ===== EDIT HERE: hero copy ===== -->
     <p class="kicker"><span class="ser">Kia ora.</span> Welcome to Te Whanganui-a-Tara, reimagined.</p>
     <h1>What if Wellington looked a little <span class="ser">different?</span></h1>
-    <p class="lede">Not a little tidier. Not a little safer. A little bolder. A little more alive. We take the empty lots, the underused carparks and the streets that could be so much more, and we show what they could become.</p>
+    <p class="lede">Wellington is a city that reacts. ReThinkWelly is here to help make it one that leads. We take underutilised spaces across the city and reimagine what they could become to inspire the council, challenge developers, and start conversations.</p>
     <div class="cta-row">
-      <a class="btn btn--brand btn--lg" href="#submit">Submit a space</a>
+      <a class="btn btn--brand btn--lg" href="#submit">Get Involved</a>
       <a class="btn btn--ghost btn--lg on-dark" href="#gallery">See the vision</a>
     </div>
     <p class="tagline">Dream a little. <b>#ReThinkWelly</b></p>
@@ -339,13 +367,13 @@ html.js .reveal.d3{transition-delay:.27s}
 <section class="mission">
   <div class="wrap cols">
     <div class="reveal">
-      <h2 class="h2">One of the most loveable cities on the planet. Let's be <span class="ser">honest</span> with it too.</h2>
-      <p class="waka" style="color:var(--muted);font-size:clamp(1.05rem,1.6vw,1.2rem);margin-top:1em">Anyone who has ever lived in Te Whanganui-a-Tara knows it. But loving a city means being honest with it too.</p>
+      <h2 class="h2" style="max-width:22ch">Reimagining Te Whanganui-a-Tara (<span class="ser">Wellington</span>) through the lens of our community.</h2>
+      <p class="lead" style="max-width:36ch">We prompt and showcase <span class="hl">opportunities hiding in plain sight</span>.</p>
     </div>
     <div class="body reveal d1">
-      <p>We have gaps in our urban fabric that have sat empty for years. Streets designed for cars, not people. A public conversation that too often defaults to blame instead of vision.</p>
-      <p>ReThinkWelly exists to change that conversation. We take real Wellington spaces and reimagine what they could become, to inspire the council, challenge developers, and start conversations.</p>
-      <p class="pull">To show, visually and <b>undeniably</b>, what this city could be when we stop accepting and start dreaming.</p>
+      <p>ReThinkWelly is an urban futures initiative reimagining the potential of Aotearoa's capital city. We identify underutilised public spaces, laneways, and vacant sites across the city, using architectural visualisation to demonstrate what they could become.</p>
+      <p>Our work bridges the gap between community imagination and urban development. By providing bold design concepts and visualising tactical urbanism, we start meaningful conversations with the Council, developers, and residents to build a more vibrant, walkable, and sustainable capital.</p>
+      <p class="pull">Stop accepting Wellington as it is. <b>Start imagining</b> what it could be.</p>
     </div>
   </div>
 </section>
@@ -354,15 +382,47 @@ html.js .reveal.d3{transition-delay:.27s}
 <section class="how">
   <div class="wrap">
     <h2 class="h2 reveal">Real spaces. Bold ideas. <span class="ser" style="color:var(--brand)">No permission</span> needed.</h2>
-    <p class="lead reveal">We identify underutilised or neglected spaces across the city, then use AI to render what they could become. The results get shared publicly, for people to react to, build on, and push further.</p>
+    <p class="lead reveal">We identify underutilised or neglected spaces across the city, then use architectural visualisation to demonstrate what they could become. The results get shared publicly, for people to react to, build on, and push further.</p>
     <div class="steps">
       <!-- ===== EDIT HERE: steps ===== -->
-      <div class="step reveal"><span class="num">01</span><h3>Spot a space</h3><p>An empty section on a busy street. A carpark where a laneway could be. A building crying out for something new.</p></div>
-      <div class="step reveal d1"><span class="num">02</span><h3>Render the future</h3><p>We use AI to visualise what each space could become. Bold, specific, and grounded in the real fabric of Wellington.</p></div>
-      <div class="step reveal d2"><span class="num">03</span><h3>Start the conversation</h3><p>The vision goes public, on social and here, out into the world for the city to react to and take further.</p></div>
+      <div class="step reveal"><span class="num">01</span><h3>Spot a space</h3><p>An empty section on a busy street. A carpark where a laneway could be. A building crying out for something new. If you see an opportunity Wellington is wasting, point us in the right direction.</p></div>
+      <div class="step reveal d1"><span class="num">02</span><h3>Render the future</h3><p>We use architectural visualisation to bypass the $50k brief and government red tape. We render bold, specific designs grounded in the real fabric and character of Te Whanganui-a-Tara.</p></div>
+      <div class="step reveal d2"><span class="num">03</span><h3>Start the conversation</h3><p>The vision goes public here and on social media, out into the world for the city to react to, debate, and take further. No council approval needed, just a simple question: <span style="color:var(--brand)">what could this space actually be?</span></p></div>
     </div>
-    <div class="aside reveal">
-      <p class="big">No $50k brief. No council approval. Just a question: <span style="color:var(--brand)">what could this space actually be?</span></p>
+  </div>
+</section>
+
+<!-- ============ ROADMAP ============ -->
+<section id="roadmap">
+  <div class="wrap">
+    <h2 class="h2 reveal">What is next for <span class="ser">ReThinkWelly?</span></h2>
+    <p class="lead reveal">The vision keeps growing. Here is what we are building toward.</p>
+    <div class="roadmap-grid">
+      <div class="roadmap-item reveal">
+        <span class="ri-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/><path d="M19 11a7 7 0 0 1-14 0"/><path d="M12 18v3"/></svg></span>
+        <h3>Real Voices</h3>
+        <p>Street interviews capturing actual community opinions and raw, local ideas.</p>
+      </div>
+      <div class="roadmap-item reveal d1">
+        <span class="ri-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8 12 3l9 5-9 5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg></span>
+        <h3>Project Deep-Dives</h3>
+        <p>Visual analyses, case studies, and stories from new urban builds across Wellington.</p>
+      </div>
+      <div class="roadmap-item reveal d2">
+        <span class="ri-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></svg></span>
+        <h3>Community Voices</h3>
+        <p>A public blog hosting design submissions and creative pieces from Wellingtonians.</p>
+      </div>
+      <div class="roadmap-item reveal">
+        <span class="ri-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l0-6Z"/></svg></span>
+        <h3>Tactical Interventions</h3>
+        <p>Future community-funded and community-led micro-interventions to bring temporary installations to life.</p>
+      </div>
+      <div class="roadmap-item reveal d1">
+        <span class="ri-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.6 10.6 15.4 7.4M8.6 13.4l6.8 3.2"/></svg></span>
+        <h3>Open Collaboration</h3>
+        <p>Active pathways for local developers, planners, creatives, and businesses to co-create these visions.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -388,7 +448,8 @@ html.js .reveal.d3{transition-delay:.27s}
             <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
           </div>
         </figure>
-        <figcaption class="ba-cap"><span class="loc">134 Courtenay Place</span><span class="desc">A grey corner becomes a warm, living street frontage.</span></figcaption>
+        <figcaption class="ba-cap"><span class="loc">134 Courtenay Place</span><span class="desc">A wind-swept, grey corner becomes a warm, living street frontage.</span></figcaption>
+        <p class="ba-prompt">Is this what you want to see on your commute?</p>
       </div>
 
       <div class="ba-item reveal">
@@ -401,7 +462,8 @@ html.js .reveal.d3{transition-delay:.27s}
             <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
           </div>
         </figure>
-        <figcaption class="ba-cap"><span class="loc">Hnry Stadium</span><span class="desc">A roof over the Cake Tin, so the game plays on in any weather.</span></figcaption>
+        <figcaption class="ba-cap"><span class="loc">Hnry Stadium</span><span class="desc">A roof over the Cake Tin, so the game plays on in any weather. No more cancellations, just a vibrant hub for the city year-round.</span></figcaption>
+        <p class="ba-prompt">What events would you want to see here?</p>
       </div>
 
       <div class="ba-item reveal">
@@ -415,6 +477,7 @@ html.js .reveal.d3{transition-delay:.27s}
           </div>
         </figure>
         <figcaption class="ba-cap"><span class="loc">Left Bank, Cuba Street</span><span class="desc">A forgotten laneway turns into a lantern-lit place to linger.</span></figcaption>
+        <p class="ba-prompt">What should Wellington make room for next?</p>
       </div>
     </div>
   </div>
@@ -426,7 +489,7 @@ html.js .reveal.d3{transition-delay:.27s}
     <div class="ig-head">
       <div class="reveal">
         <h2 class="h2">See it as it <span class="ser" style="color:var(--brand)">happens.</span></h2>
-        <p class="lead">Reimagining Te Whanganui-a-Tara through the lens of our community. We showcase opportunities hiding in plain sight. Share your ideas and DM to be featured.</p>
+        <p class="lead">Reimagining Te Whanganui-a-Tara through the lens of our community. We showcase <span class="hl">opportunities hiding in plain sight</span>. Share your ideas and DM to be featured.</p>
       </div>
       <a class="ig-link reveal" href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg>
@@ -451,44 +514,117 @@ html.js .reveal.d3{transition-delay:.27s}
   </div>
 </section>
 
-<!-- ============ SUBMIT / GET INVOLVED ============ -->
+<!-- ============ JOIN THE COLLECTIVE ============ -->
+<section id="collective" style="background:var(--paper-2)">
+  <div class="wrap">
+    <h2 class="h2 reveal">Join the <span class="ser">collective.</span></h2>
+    <p class="lead reveal">The waka is moving, and everyone is welcome on board. We want to connect with anyone passionate about a more livable capital. Find your role below and help us challenge the status quo.</p>
+    <div class="collective-grid">
+      <div class="collective-card reveal">
+        <span class="role">For Locals</span>
+        <p class="quote">&ldquo;You walk past these spaces every day. Share your ideas: you do not need a grand vision, just point us toward a site that deserves better.&rdquo;</p>
+      </div>
+      <div class="collective-card reveal d1">
+        <span class="role">For Creatives &amp; Architects</span>
+        <p class="quote">&ldquo;Bring your skills, your imagination, and your boldest design concepts to help us make the future of Wellington visible.&rdquo;</p>
+      </div>
+      <div class="collective-card reveal d2">
+        <span class="role">For Businesses &amp; Developers</span>
+        <p class="quote">&ldquo;Foot traffic follows beauty. Partner with us to see what iconic, people-first development could unlock for your neighbourhood.&rdquo;</p>
+      </div>
+      <div class="collective-card reveal d3">
+        <span class="role">For Council &amp; Planners</span>
+        <p class="quote">&ldquo;Let us help you start the conversation early. Use our community-driven concepts to build public momentum for bolder planning decisions.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GET INVOLVED (dynamic form) ============ -->
 <section class="cta" id="submit">
   <div class="wrap grid">
     <div class="reveal">
-      <h2 class="h2">See a space Wellington is <span class="ser">wasting?</span></h2>
-      <p class="lead">You probably walk past it every day. You do not need a grand vision for it. Just point us in the right direction and we will take it from there.</p>
-      <p class="waka">The waka is moving. Everyone is welcome on board.</p>
-      <p class="segs">Get involved as a
-        <a href="mailto:rethinkwelly@gmail.com?subject=For%20Creatives">Creative</a>,
-        <a href="mailto:rethinkwelly@gmail.com?subject=For%20Businesses">Business</a>,
-        <a href="mailto:rethinkwelly@gmail.com?subject=For%20Developers%20%26%20Industry">Developer</a>, or
-        <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">Local</a>.
-      </p>
+      <h2 class="h2">Get <span class="ser">Involved.</span></h2>
+      <p class="lead" style="color:var(--ink-2)">The waka is moving. Tell us who you are, and let's reshape Wellington together.</p>
     </div>
 
     <!-- Netlify Forms: submissions land in your Netlify dashboard under Forms.
-         The honeypot field below quietly filters bots. -->
-    <form class="submit reveal d1" id="submitForm" name="submit-a-space" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="submit-a-space">
+         All three field-groups exist in the static markup (Netlify needs to see
+         them to register the fields); JS shows/hides + toggles required based
+         on the "I am a..." selection. The honeypot field quietly filters bots. -->
+    <form class="submit reveal d1" id="submitForm" name="get-involved" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="get-involved">
       <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
       <div class="field">
-        <label for="where">Where is it?</label>
-        <input id="where" name="where" type="text" placeholder="Street, suburb or a rough location" required>
+        <label for="audience">I am a...</label>
+        <select id="audience" name="audience" required>
+          <option value="" disabled selected>Choose one</option>
+          <option value="local">Local</option>
+          <option value="creative">Creative / Architect</option>
+          <option value="business">Business / Developer / Council</option>
+        </select>
       </div>
-      <div class="field">
-        <label for="what">What is there now?</label>
-        <input id="what" name="what" type="text" placeholder="An empty lot, a carpark, a tired corner" required>
+
+      <div class="field-group" id="group-local" hidden>
+        <div class="field">
+          <label for="local-where">Where is the space?</label>
+          <input id="local-where" name="local_where" type="text" placeholder="Street name or corner">
+        </div>
+        <div class="field">
+          <label for="local-what">What is there now?</label>
+          <input id="local-what" name="local_what" type="text" placeholder="Empty lot, car park, blank wall">
+        </div>
+        <div class="field">
+          <label for="local-opportunity">What opportunity do you see here?</label>
+          <textarea id="local-opportunity" name="local_opportunity" placeholder="What could it become?"></textarea>
+        </div>
+        <div class="field">
+          <label for="local-email">Your email address</label>
+          <input id="local-email" name="local_email" type="email" placeholder="you@example.com">
+        </div>
       </div>
-      <div class="field">
-        <label for="why">Why does it stand out to you?</label>
-        <textarea id="why" name="why" placeholder="A sentence is plenty" required></textarea>
+
+      <div class="field-group" id="group-creative" hidden>
+        <div class="field">
+          <label for="creative-specialty">My specialty is...</label>
+          <input id="creative-specialty" name="creative_specialty" type="text" placeholder="Architecture, 3D rendering, urban planning, graphic design">
+        </div>
+        <div class="field">
+          <label for="creative-collab">How would you like to collaborate?</label>
+          <textarea id="creative-collab" name="creative_collab" placeholder="I have a site I've already designed, or I want to help render community submissions"></textarea>
+        </div>
+        <div class="field">
+          <label for="creative-portfolio">Link to portfolio or social profile</label>
+          <input id="creative-portfolio" name="creative_portfolio" type="text" placeholder="A link works best">
+        </div>
+        <div class="field">
+          <label for="creative-email">Your email address</label>
+          <input id="creative-email" name="creative_email" type="email" placeholder="you@example.com">
+        </div>
       </div>
-      <div class="field">
-        <label for="email">Your email</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+      <div class="field-group" id="group-business" hidden>
+        <div class="field">
+          <label for="biz-org">Organisation or company name</label>
+          <input id="biz-org" name="biz_org" type="text" placeholder="Your organisation">
+        </div>
+        <div class="field">
+          <label for="biz-project">What space, site, or project are you looking at?</label>
+          <input id="biz-project" name="biz_project" type="text" placeholder="Tell us where">
+        </div>
+        <div class="field">
+          <label for="biz-help">How can ReThinkWelly help?</label>
+          <textarea id="biz-help" name="biz_help" placeholder="Public visualisations for Council, community feedback, or a laneway activation"></textarea>
+        </div>
+        <div class="field">
+          <label for="biz-email">Your email address</label>
+          <input id="biz-email" name="biz_email" type="email" placeholder="you@example.com">
+        </div>
       </div>
-      <button class="btn btn--brand btn--lg" type="submit">Send it in</button>
-      <p class="form-note">Every big idea starts with someone noticing something others walked past.</p>
+
+      <button class="btn btn--brand btn--lg" type="submit" id="submitBtn" disabled>Choose an option above</button>
+      <p class="form-note" id="formNote">Select who you are to get started.</p>
     </form>
   </div>
 </section>
@@ -500,7 +636,7 @@ html.js .reveal.d3{transition-delay:.27s}
       <div class="reveal">
         <div class="foot-wm"><span class="wm"><i>Re</i>Think<b>Welly.</b></span></div>
         <p class="foot-sub">Urban Futures &#183; Te Whanganui-a-Tara</p>
-        <p class="foot-tag">Ideas for shaping the future of Aotearoa's capital city. Stop accepting Wellington as it is. Start imagining what it could be. Dream a little.</p>
+        <p class="foot-tag">Ideas for shaping the future of Aotearoa's capital city. Stop accepting Wellington as it is. Start imagining what it could be. <b>#ReThinkWelly</b> &#127961;&#65039;&#10024;</p>
       </div>
       <div class="foot-social reveal d1">
         <div class="socials on-dark" aria-label="Social links">
@@ -516,7 +652,7 @@ html.js .reveal.d3{transition-delay:.27s}
   </div>
 </footer>
 
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="#submit">Submit a space</a></div>
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="#submit">Get Involved</a></div>
 
 <script>
 (function(){
@@ -566,6 +702,42 @@ html.js .reveal.d3{transition-delay:.27s}
   });
 
   /* Instagram feed is the Behold widget (self-contained). No JS needed here. */
+
+  /* dynamic "Get Involved" form: reveal fields for the chosen audience and
+     toggle required so hidden fields never block submission */
+  (function(){
+    var select = document.getElementById("audience");
+    if(!select) return;
+    var groups = { local: document.getElementById("group-local"),
+                   creative: document.getElementById("group-creative"),
+                   business: document.getElementById("group-business") };
+    var btn = document.getElementById("submitBtn");
+    var note = document.getElementById("formNote");
+    var copy = {
+      local:    { btn:"Share your idea", note:"Share your ideas and follow @rethinkwelly on Instagram and LinkedIn!" },
+      creative: { btn:"Join the design collective", note:"" },
+      business: { btn:"Let's talk partnerships", note:"" }
+    };
+    function setRequired(group, on){
+      if(!group) return;
+      group.querySelectorAll("input, textarea").forEach(function(f){
+        if(on) f.setAttribute("required",""); else f.removeAttribute("required");
+      });
+    }
+    select.addEventListener("change", function(){
+      var val = select.value;
+      Object.keys(groups).forEach(function(k){
+        var on = k === val;
+        groups[k].hidden = !on;
+        setRequired(groups[k], on);
+      });
+      if(copy[val]){
+        btn.textContent = copy[val].btn;
+        note.textContent = copy[val].note;
+        btn.disabled = false;
+      }
+    });
+  })();
 
   /* mobile sticky CTA after hero */
   var sticky = document.getElementById("stickyCta");
