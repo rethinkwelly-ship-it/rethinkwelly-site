@@ -108,8 +108,8 @@ Each page carries its own copy of the CSS (in `<style>`) and JS (in `<script>`),
 style change must be made in all four files to stay consistent.
 
 ```
-index.html                         Home: hero, before/after teaser, Instagram feed, Get Involved strip
-visions.html                       Visions: all before/after sliders, How it works (01/02/03), Instagram
+index.html                         Home: hero, Instagram feed, Get Involved strip
+visions.html                       Visions: How it works (01/02/03), all before/after sliders, Instagram
 about.html                         About: mission, roadmap, independence note
 get-involved.html                  Get Involved: Join the collective cards + the get-involved form
 images/                            Optimised images used by the site (.jpg)
@@ -123,7 +123,7 @@ reference-instagram-carousel.html  Unused reference snippet. Ignore it.
 
 Every page shares the same header (Visions, About, Get Involved) and footer.
 The sections below now live on these pages: 2 and 7 on Home; 4, 6 and 7 on Visions
-(6 is also on Home as a teaser); 3 and 5 on About; 8 and 9 on Get Involved.
+(sliders live only on Visions); 3 and 5 on About; 8 and 9 on Get Involved.
 Original section list (each is a `<section>` with a comment header):
 
 1. Header: wordmark, Instagram and LinkedIn icons, "Get Involved" button
@@ -169,8 +169,7 @@ HTML tags around them exactly as they are.
 1. The owner provides two images: before and after, same size, landscape 16:9
    (1600 x 900 is ideal), each under about 400 KB. Name them `slug-before.jpg` and
    `slug-after.jpg` (for example `kent-terrace-before.jpg`) and add them to `images/`.
-2. In the gallery section (in `visions.html`, and also `index.html` if the home teaser
-   should show it), copy one whole `<div class="ba-item reveal">...</div>` block,
+2. In the gallery section (in `visions.html`, the only page with sliders), copy one whole `<div class="ba-item reveal">...</div>` block,
    paste it after the others, and update: both image paths, the `alt` text, the
    `aria-label`, the location name (`.loc`), the description (`.desc`) and the question
    underneath (`.ba-prompt`).
