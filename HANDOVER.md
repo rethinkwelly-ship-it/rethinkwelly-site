@@ -103,10 +103,15 @@ in about a minute.
   automatically within about a minute.** There is no separate test site, so treat `main` as live.
 - **Domain:** registered at Squarespace, with DNS pointing to Netlify. Do not touch DNS.
 
-The site is deliberately simple: **one HTML file, no framework, no build step.**
+The site is deliberately simple: **four plain HTML pages, no framework, no build step.**
+Each page carries its own copy of the CSS (in `<style>`) and JS (in `<script>`), so a
+style change must be made in all four files to stay consistent.
 
 ```
-index.html                         The whole site: HTML, CSS (in <style>) and JS (in <script>)
+index.html                         Home: hero, Instagram feed, Get Involved strip
+visions.html                       Visions: How it works (01/02/03), all before/after sliders, Instagram
+about.html                         About: mission, roadmap, independence note
+get-involved.html                  Get Involved: Join the collective cards + the get-involved form
 images/                            Optimised images used by the site (.jpg)
 netlify.toml                       Netlify settings (publish folder, caching, security headers)
 favicon.ico, favicon-*.png,
@@ -116,7 +121,10 @@ README.md                          Older technical notes
 reference-instagram-carousel.html  Unused reference snippet. Ignore it.
 ```
 
-Page sections, top to bottom (each is a `<section>` with a comment header in `index.html`):
+Every page shares the same header (Visions, About, Get Involved) and footer.
+The sections below now live on these pages: 2 and 7 on Home; 4, 6 and 7 on Visions
+(sliders live only on Visions); 3 and 5 on About; 8 and 9 on Get Involved.
+Original section list (each is a `<section>` with a comment header):
 
 1. Header: wordmark, Instagram and LinkedIn icons, "Get Involved" button
 2. Hero: main headline, subtext, two buttons, Wellington cable-car photo
@@ -161,7 +169,7 @@ HTML tags around them exactly as they are.
 1. The owner provides two images: before and after, same size, landscape 16:9
    (1600 x 900 is ideal), each under about 400 KB. Name them `slug-before.jpg` and
    `slug-after.jpg` (for example `kent-terrace-before.jpg`) and add them to `images/`.
-2. In the gallery section, copy one whole `<div class="ba-item reveal">...</div>` block,
+2. In the gallery section (in `visions.html`, the only page with sliders), copy one whole `<div class="ba-item reveal">...</div>` block,
    paste it after the others, and update: both image paths, the `alt` text, the
    `aria-label`, the location name (`.loc`), the description (`.desc`) and the question
    underneath (`.ba-prompt`).
@@ -189,8 +197,8 @@ code. Do not edit the widget code unless the feed is being replaced.
 
 - **Make small, targeted edits.** Never rewrite or regenerate the whole `index.html`.
   Change only what was asked.
-- **Keep it one static file.** No frameworks, packages, build tools or new pages unless the
-  owner explicitly asks.
+- **Keep it plain static files.** No frameworks, packages or build tools, and no new pages
+  unless the owner explicitly asks.
 - **Before every push,** describe in plain English exactly what will change on the live
   site, and wait for a yes.
 - **Small text or image changes:** commit straight to `main` (live in about a minute).
