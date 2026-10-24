@@ -424,15 +424,17 @@ html.js .reveal.d3{transition-delay:.27s}
 }
 
 /* shared header, mobile menu, sticky button and footer (all pages) */
-.wm{font-family:var(--font-serif);font-weight:400}
-.wm i{font-weight:400}
-.wm b{font-family:var(--font-sans);font-weight:700}
+/* brand letter spacing (from the Canva logo): Be Vietnam -80, Times New Roman -70 */
+:root{--ls-sans:-.08em;--ls-serif:-.07em;--ls-ui:-.03em}  /* --ls-ui: 13-16px nav/button text, where -.08em closes up word spaces */
+.wm{font-family:var(--font-serif);font-weight:400;letter-spacing:var(--ls-serif)}
+.wm i{font-weight:400;letter-spacing:var(--ls-serif)}
+.wm b{font-family:var(--font-sans);font-weight:700;letter-spacing:var(--ls-sans);margin-left:.06em}
 header,.nav-menu,footer,.sticky-cta{font-family:var(--font-sans)}
 .nav-links a,.nav-menu a,header .btn,.nav-menu .btn,.sticky-cta .btn{
-  font-family:var(--font-sans);font-size:.875rem;font-weight:500;line-height:1.4;letter-spacing:normal}
+  font-family:var(--font-sans);font-size:.875rem;font-weight:500;line-height:1.4;letter-spacing:var(--ls-ui)}
 .nav-links a{padding:8px 16px}
 .nav-links a[aria-current="page"],.nav-links .nav-suggest,.nav-menu a[aria-current="page"]{font-weight:500}
-.follow-label{font-family:var(--font-sans);font-size:1rem;font-weight:500;line-height:1.4;letter-spacing:normal}
+.follow-label{font-family:var(--font-sans);font-size:1rem;font-weight:500;line-height:1.4;letter-spacing:var(--ls-ui)}
 .foot-bottom{font-size:.8125rem;line-height:1.4;font-weight:400}
 </style>
 </head>

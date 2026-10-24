@@ -441,15 +441,17 @@ html.js .reveal.d3{transition-delay:.27s}
 }
 
 /* shared header, mobile menu, sticky button and footer (all pages) */
-.wm{font-family:var(--font-serif);font-weight:400}
-.wm i{font-weight:400}
-.wm b{font-family:var(--font-sans);font-weight:700}
+/* brand letter spacing (from the Canva logo): Be Vietnam -80, Times New Roman -70 */
+:root{--ls-sans:-.08em;--ls-serif:-.07em;--ls-ui:-.03em}  /* --ls-ui: 13-16px nav/button text, where -.08em closes up word spaces */
+.wm{font-family:var(--font-serif);font-weight:400;letter-spacing:var(--ls-serif)}
+.wm i{font-weight:400;letter-spacing:var(--ls-serif)}
+.wm b{font-family:var(--font-sans);font-weight:700;letter-spacing:var(--ls-sans);margin-left:.06em}
 header,.nav-menu,footer,.sticky-cta{font-family:var(--font-sans)}
 .nav-links a,.nav-menu a,header .btn,.nav-menu .btn,.sticky-cta .btn{
-  font-family:var(--font-sans);font-size:.875rem;font-weight:500;line-height:1.4;letter-spacing:normal}
+  font-family:var(--font-sans);font-size:.875rem;font-weight:500;line-height:1.4;letter-spacing:var(--ls-ui)}
 .nav-links a{padding:8px 16px}
 .nav-links a[aria-current="page"],.nav-links .nav-suggest,.nav-menu a[aria-current="page"]{font-weight:500}
-.follow-label{font-family:var(--font-sans);font-size:1rem;font-weight:500;line-height:1.4;letter-spacing:normal}
+.follow-label{font-family:var(--font-sans);font-size:1rem;font-weight:500;line-height:1.4;letter-spacing:var(--ls-ui)}
 .foot-bottom{font-size:.8125rem;line-height:1.4;font-weight:400}
 
 /* page content type scale (Home, About, Get Involved only; the Ideas page keeps its own) */
@@ -464,18 +466,18 @@ header,.nav-menu,footer,.sticky-cta{font-family:var(--font-sans)}
   --fs-intro: clamp(1.125rem, calc(1.125rem + (100vw - 48rem) * .00784), 1.25rem);  /* 18 to 20 */
 }
 body{font-size:1rem;line-height:1.6}
-h1,h2,h3{letter-spacing:normal}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:var(--fs-hero);line-height:1.1;letter-spacing:normal}
-.h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.15;letter-spacing:normal}
-.page-intro h1{font-family:var(--serif);font-weight:400;font-size:var(--fs-title);line-height:1.1;letter-spacing:normal}
-/* emphasis words in headings keep their colour but use the heading's own font */
-h1 .ser,h2 .ser,h3 .ser{font-family:inherit;font-style:normal;font-weight:inherit;letter-spacing:normal}
-.step h3,.roadmap-item h3,.rc-title{font-family:var(--sans);font-weight:500;font-size:var(--fs-h3);line-height:1.25;letter-spacing:normal}
+/* headings: Be Vietnam bold; emphasis words (.ser) are the Times New Roman italic accent */
+h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:var(--ls-sans)}
+.hero h1{font-family:var(--sans);font-weight:700;font-size:var(--fs-hero);line-height:1.1;letter-spacing:var(--ls-sans)}
+.h2{font-family:var(--sans);font-weight:700;font-size:var(--fs-h2);line-height:1.15;letter-spacing:var(--ls-sans)}
+.page-intro h1{font-family:var(--sans);font-weight:700;font-size:var(--fs-title);line-height:1.1;letter-spacing:var(--ls-sans)}
+h1 .ser,h2 .ser,h3 .ser,.hero h1 .ser{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:var(--ls-serif);margin-left:.04em}
+.step h3,.roadmap-item h3,.rc-title{font-family:var(--sans);font-weight:700;font-size:var(--fs-h3);line-height:1.25;letter-spacing:var(--ls-sans)}
 .step .num{font-family:var(--serif);font-style:normal;font-weight:400}
 .lead,.hero .lede,.about-body{font-size:var(--fs-intro);line-height:1.6;font-weight:400}
 p,li,.step p,.roadmap-item p,.rc-desc{font-size:1rem;line-height:1.6}
 .wx-line{font-weight:400}
-.btn,.btn--lg,.ig-link,.text-link{font-family:var(--sans);font-size:.875rem;font-weight:500;line-height:1.4;letter-spacing:normal}
+.btn,.btn--lg,.ig-link,.text-link{font-family:var(--sans);font-size:.875rem;font-weight:500;line-height:1.4;letter-spacing:var(--ls-ui)}
 .field label{font-size:.875rem;font-weight:500;line-height:1.4}
 .field .opt{font-weight:400}
 .field input,.field textarea,.field select{font-family:var(--sans);font-size:1rem;font-weight:400;line-height:1.5}
