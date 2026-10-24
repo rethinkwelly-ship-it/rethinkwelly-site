@@ -311,7 +311,7 @@ footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 4
 .follow-icons a:hover{color:var(--brand);transform:translateY(-3px)}
 .follow-icons svg{width:28px;height:28px;fill:currentColor}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
-  border-top:1px solid var(--line-dark);margin-top:clamp(40px,6vw,64px);padding-top:24px;color:#9c968b;font-size:.9rem}
+  margin-top:clamp(40px,6vw,64px);padding-top:24px;color:#9c968b;font-size:.9rem}
 .foot-bottom a{color:#d8d3ca;text-decoration:none}
 .foot-bottom .sep{color:var(--brand)}
 
@@ -319,7 +319,6 @@ footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 4
 header{background:var(--brand)}
 header .btn--brand{--bg:var(--ink);--fg:var(--paper);border-color:var(--ink)}
 header .btn--brand:hover{--bg:#2a2826}
-header .nav-cta[aria-current="page"]{box-shadow:0 0 0 2px var(--brand),0 0 0 4px var(--ink)}
 header .nav-links a:hover{text-decoration-color:var(--ink)}
 @media(max-width:680px){header .nav-menu{background:var(--brand)}}
 
@@ -349,7 +348,9 @@ html.js .reveal.d3{transition-delay:.27s}
 .nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1rem;padding:6px 16px;border-radius:999px;transition:background .15s,color .15s}
 .nav-links a:hover{background:rgba(18,17,16,.08);text-decoration:none}
 .nav-links a[aria-current="page"]{background:var(--ink);color:var(--paper);font-weight:700;text-decoration:none}
-.nav-cta[aria-current="page"]{box-shadow:inset 0 0 0 2px var(--ink)}
+.nav-links .nav-suggest{background:var(--ink);color:var(--brand);font-weight:700}
+.nav-links .nav-suggest:hover{background:var(--ink-2);color:var(--brand)}
+.nav-links .nav-suggest[aria-current="page"]{background:var(--ink);color:var(--brand)}
 .nav-toggle{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);
   background:transparent;color:var(--ink);cursor:pointer;place-items:center;padding:0}
 .nav-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
@@ -358,7 +359,7 @@ html.js .reveal.d3{transition-delay:.27s}
 .nav-toggle[aria-expanded="true"] .x{display:block}
 .nav-menu{display:none}
 @media(max-width:680px){
-  .nav-links,.nav-right>.nav-cta{display:none}
+  .nav-links{display:none}
   .nav-toggle{display:grid}
   .nav-menu{position:absolute;left:0;right:0;top:100%;background:var(--paper);
     border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(0,0,0,.08);padding:8px 0 22px}
@@ -399,7 +400,9 @@ html.js .reveal.d3{transition-delay:.27s}
 .foot-nav a{color:#d8d3ca;text-decoration:none;font-size:1rem;padding:6px 16px;border-radius:999px;transition:background .15s,color .15s;font-weight:600}
 .foot-nav a:hover{color:var(--paper);background:rgba(255,255,255,.1)}
 .foot-nav a[aria-current="page"]{background:var(--paper);color:var(--ink);font-weight:700}
-.foot-cta[aria-current="page"]{box-shadow:0 0 0 2px var(--ink),0 0 0 4px var(--brand)}
+.foot-nav .foot-suggest{background:var(--brand);color:var(--ink);font-weight:700}
+.foot-nav .foot-suggest:hover{background:var(--brand-deep);color:var(--ink)}
+.foot-nav .foot-suggest[aria-current="page"]{background:var(--brand);color:var(--ink)}
 @media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}.foot-nav{flex-wrap:wrap;gap:2px}}
 
 /* ---------- shared: stacked dark sections + plain text links ---------- */
@@ -434,8 +437,10 @@ html.js .reveal.d3{transition-delay:.27s}
       <nav class="nav-links" aria-label="Main">
         <a href="visions.html">Ideas</a>
         <a href="about.html" aria-current="page">About</a>
+      
+        <a class="nav-suggest" href="get-involved.html?role=local">Suggest a space</a>
       </nav>
-      <a class="btn btn--brand nav-cta" href="get-involved.html?role=local">Suggest a space</a>
+      
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
         <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -537,8 +542,10 @@ html.js .reveal.d3{transition-delay:.27s}
         <nav class="foot-nav" aria-label="Footer">
           <a href="visions.html">Ideas</a>
           <a href="about.html" aria-current="page">About</a>
+        
+          <a class="foot-suggest" href="get-involved.html?role=local">Suggest a space</a>
         </nav>
-        <a class="btn btn--brand foot-cta" href="get-involved.html?role=local">Suggest a space</a>
+        
       </div>
     </div>
     <div class="foot-bottom">
