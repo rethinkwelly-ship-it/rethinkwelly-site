@@ -79,7 +79,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 .wm b{font-family:var(--sans);font-weight:800;letter-spacing:-.03em}  /* Welly. */
 
 /* serif accent word inside a sans heading (brand signature move) */
-.ser{font-family:var(--serif);font-weight:500;font-style:italic;letter-spacing:0;}
+.ser{font-family:var(--serif);font-weight:500;font-style:italic;letter-spacing:0;font-size:1.12em;line-height:0}  /* 1.12em: TNR cap height matches Be Vietnam */
 
 /* ---------- buttons ---------- */
 .btn{
@@ -471,6 +471,10 @@ p,li,.step p,.roadmap-item p,.rc-desc{font-size:1rem;line-height:1.6}
 .field .help,.form-status{font-size:.875rem;line-height:1.5}
 .form-status{font-weight:500}
 .wx-label,.wx-updated,.slide figcaption,.ig-note,.form-note{font-size:.8125rem;line-height:1.4;font-weight:400;letter-spacing:normal;text-transform:none}
+
+/* header logo: official wordmark artwork (black on the yellow header) */
+.brand-logo{display:block;height:28px;width:auto}
+@media(max-width:680px){.brand-logo{height:24px}}
 </style>
 </head>
 <body>
@@ -480,7 +484,7 @@ p,li,.step p,.roadmap-item p,.rc-desc{font-size:1rem;line-height:1.6}
   <div class="wrap nav">
     <!-- ===== EDIT HERE: wordmark ===== -->
     <a class="brand" href="index.html" aria-label="ReThinkWelly home">
-      <span class="wm"><i>Re</i>Think<b>Welly.</b></span>
+      <img class="brand-logo" src="images/logo-wordmark.png" width="506" height="84" alt="ReThinkWelly">
     </a>
     <div class="nav-right">
       <!-- ===== EDIT HERE: page links ===== -->

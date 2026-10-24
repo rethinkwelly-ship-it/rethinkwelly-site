@@ -436,6 +436,10 @@ header,.nav-menu,footer,.sticky-cta{font-family:var(--font-sans)}
 .nav-links a[aria-current="page"],.nav-links .nav-suggest,.nav-menu a[aria-current="page"]{font-weight:500}
 .follow-label{font-family:var(--font-sans);font-size:1rem;font-weight:500;line-height:1.4;letter-spacing:var(--ls-ui)}
 .foot-bottom{font-size:.8125rem;line-height:1.4;font-weight:400}
+
+/* header logo: official wordmark artwork (black on the yellow header) */
+.brand-logo{display:block;height:28px;width:auto}
+@media(max-width:680px){.brand-logo{height:24px}}
 </style>
 </head>
 <body>
@@ -445,7 +449,7 @@ header,.nav-menu,footer,.sticky-cta{font-family:var(--font-sans)}
   <div class="wrap nav">
     <!-- ===== EDIT HERE: wordmark ===== -->
     <a class="brand" href="index.html" aria-label="ReThinkWelly home">
-      <span class="wm"><i>Re</i>Think<b>Welly.</b></span>
+      <img class="brand-logo" src="images/logo-wordmark.png" width="506" height="84" alt="ReThinkWelly">
     </a>
     <div class="nav-right">
       <!-- ===== EDIT HERE: page links ===== -->
