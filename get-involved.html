@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Involved | ReThinkWelly</title>
-<meta name="description" content="Join the collective. Locals, creatives, businesses and planners: tell us who you are and let's reshape Wellington together.">
+<meta name="description" content="Suggest a space, share your skills or explore working together.">
 
 <meta property="og:title" content="ReThinkWelly | Wellington, reimagined">
 <meta property="og:description" content="Real spaces. Bold ideas. No permission needed. Dream a little.">
@@ -304,14 +304,14 @@ footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 4
 .foot-wm .wm b{color:var(--brand)}
 .foot-sub{color:var(--brand);font-weight:600;letter-spacing:.02em;margin-top:.6em}
 .foot-tag{color:#d8d3ca;max-width:44ch;margin-top:1.1em}
-.foot-social{margin-top:1.6em}
-.follow-label{font-weight:700;font-size:clamp(1.1rem,1.8vw,1.25rem);color:var(--paper);margin:0 0 .6em}
+.foot-social{margin-top:0;display:flex;align-items:center;gap:12px}
+.follow-label{font-weight:700;font-size:clamp(1.1rem,1.8vw,1.25rem);color:var(--paper);margin:0}
 .follow-icons{display:flex;gap:20px;align-items:center}
 .follow-icons a{display:grid;place-items:center;color:var(--paper);text-decoration:none;transition:color .2s,transform .25s var(--ease)}
 .follow-icons a:hover{color:var(--brand);transform:translateY(-3px)}
 .follow-icons svg{width:28px;height:28px;fill:currentColor}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
-  border-top:1px solid var(--line-dark);margin-top:clamp(40px,6vw,64px);padding-top:24px;color:#9c968b;font-size:.9rem}
+  margin-top:clamp(40px,6vw,64px);padding-top:24px;color:#9c968b;font-size:.9rem}
 .foot-bottom a{color:#d8d3ca;text-decoration:none}
 .foot-bottom .sep{color:var(--brand)}
 
@@ -319,7 +319,6 @@ footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 4
 header{background:var(--brand)}
 header .btn--brand{--bg:var(--ink);--fg:var(--paper);border-color:var(--ink)}
 header .btn--brand:hover{--bg:#2a2826}
-header .nav-cta[aria-current="page"]{box-shadow:0 0 0 2px var(--brand),0 0 0 4px var(--ink)}
 header .nav-links a:hover{text-decoration-color:var(--ink)}
 @media(max-width:680px){header .nav-menu{background:var(--brand)}}
 
@@ -345,12 +344,13 @@ html.js .reveal.d3{transition-delay:.27s}
 }
 
 /* ---------- multi-page nav (Visions / About / Get Involved) ---------- */
-.nav-links{display:flex;align-items:center;gap:clamp(16px,2.4vw,28px)}
-.nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1rem;
-  text-underline-offset:6px;text-decoration-thickness:2px;transition:color .2s}
-.nav-links a:hover{text-decoration-line:underline;text-decoration-color:var(--line)}
-.nav-links a[aria-current="page"]{font-weight:800;text-decoration-line:underline;text-decoration-color:var(--ink)}
-.nav-cta[aria-current="page"]{box-shadow:inset 0 0 0 2px var(--ink)}
+.nav-links{display:flex;align-items:center;gap:4px;border:1.5px solid var(--ink);border-radius:999px;padding:4px}
+.nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1rem;padding:6px 16px;border-radius:999px;transition:background .15s,color .15s}
+.nav-links a:hover{background:rgba(18,17,16,.08);text-decoration:none}
+.nav-links a[aria-current="page"]{background:var(--ink);color:var(--paper);font-weight:700;text-decoration:none}
+.nav-links .nav-suggest{background:var(--ink);color:var(--brand);font-weight:700}
+.nav-links .nav-suggest:hover{background:var(--ink-2);color:var(--brand)}
+.nav-links .nav-suggest[aria-current="page"]{background:var(--ink);color:var(--brand)}
 .nav-toggle{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);
   background:transparent;color:var(--ink);cursor:pointer;place-items:center;padding:0}
 .nav-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
@@ -359,7 +359,7 @@ html.js .reveal.d3{transition-delay:.27s}
 .nav-toggle[aria-expanded="true"] .x{display:block}
 .nav-menu{display:none}
 @media(max-width:680px){
-  .nav-links,.nav-right>.nav-cta{display:none}
+  .nav-links{display:none}
   .nav-toggle{display:grid}
   .nav-menu{position:absolute;left:0;right:0;top:100%;background:var(--paper);
     border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(0,0,0,.08);padding:8px 0 22px}
@@ -394,11 +394,38 @@ html.js .reveal.d3{transition-delay:.27s}
 @media(max-width:560px){.collective-grid--four{grid-template-columns:1fr}}
 
 /* ---------- footer page links ---------- */
-.foot-top{align-items:flex-end}
-.foot-nav{display:flex;flex-wrap:wrap;gap:12px 40px;font-weight:600;justify-content:flex-end}
-.foot-nav a{color:#d8d3ca;text-decoration:none;transition:color .2s}
-.foot-nav a:hover{color:var(--brand)}
-@media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}.foot-nav{justify-content:flex-start;gap:12px 28px}}
+.foot-top{align-items:center}
+@media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}}
+
+/* ---------- shared: stacked dark sections + plain text links ---------- */
+.sec-line{}
+.text-link{display:inline-block;color:var(--brand);font-weight:700;text-decoration:none;
+  border-bottom:2px solid transparent;transition:border-color .2s}
+.text-link:hover,.text-link:focus-visible{border-color:var(--brand)}
+.text-link:focus-visible{outline:3px solid var(--brand);outline-offset:4px;border-radius:2px}
+
+/* ---------- get involved: role cards + four forms ---------- */
+.gi-page .h2{max-width:none}
+.role-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(28px,4vw,44px);max-width:920px}
+@media(max-width:640px){.role-cards{grid-template-columns:1fr}}
+.role-card{font:inherit;text-align:left;cursor:pointer;background:var(--paper);color:var(--ink);border:2px solid var(--ink);
+  border-radius:var(--radius);padding:20px 22px;transition:background .2s,transform .2s var(--ease)}
+.role-card:hover{transform:translateY(-2px)}
+.role-card[aria-pressed="true"]{background:var(--brand)}
+.role-card:focus-visible{outline:3px solid var(--brand);outline-offset:4px}
+.role-card[aria-pressed="true"]:focus-visible{outline-color:var(--paper)}
+.rc-title{display:block;font-weight:800;font-size:clamp(1.08rem,1.6vw,1.22rem);letter-spacing:-.01em}
+.rc-desc{display:block;margin-top:6px;color:var(--ink-2);font-size:.98rem;line-height:1.45}
+.gi-forms{margin-top:clamp(28px,4vw,44px);max-width:640px}
+.gi-form{scroll-margin-top:96px}
+.field .help{display:block;margin:-2px 0 6px;color:var(--muted);font-size:.88rem}
+.field .opt{font-weight:400;color:var(--muted)}
+.field input[type=file]{padding:.6em}
+.field select:focus{outline:3px solid var(--brand-deep);outline-offset:1px}
+.form-status{margin:14px 0 0;font-weight:700;font-size:.95rem}
+.form-status:empty{display:none}
+.form-status.ok{background:var(--brand);border:2px solid var(--ink);border-radius:11px;padding:12px 14px}
+.form-status.err{color:#a3221b}
 </style>
 </head>
 <body>
@@ -415,8 +442,10 @@ html.js .reveal.d3{transition-delay:.27s}
       <nav class="nav-links" aria-label="Main">
         <a href="visions.html">Ideas</a>
         <a href="about.html">About</a>
+      
+        <a class="nav-suggest" href="get-involved.html?role=local" aria-current="page">Suggest a space</a>
       </nav>
-      <a class="btn btn--brand nav-cta" href="get-involved.html" aria-current="page">Get Involved</a>
+      
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
         <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -427,135 +456,161 @@ html.js .reveal.d3{transition-delay:.27s}
     <div class="wrap">
       <a href="visions.html">Ideas</a>
       <a href="about.html">About</a>
-      <a class="btn btn--brand" href="get-involved.html" aria-current="page">Get Involved</a>
+      <a class="btn btn--brand" href="get-involved.html?role=local" aria-current="page">Suggest a space</a>
     </div>
   </nav>
 </header>
 
 <a id="top"></a>
 
-<!-- ============ GET INVOLVED (dynamic form) ============ -->
-<section class="cta page-intro" id="submit">
-  <div class="wrap grid">
-    <div class="reveal">
-      <h1 class="h2">Get <span class="ser">Involved.</span></h1>
-      <p class="lead">We want to connect with anyone passionate about a more livable capital. Find your role below and help us challenge the status quo.</p>
-    </div>
-
-    <!-- Netlify Forms: submissions land in your Netlify dashboard under Forms.
-         All three field-groups exist in the static markup (Netlify needs to see
-         them to register the fields); JS shows/hides + toggles required based
-         on the "I am a..." selection. The honeypot field quietly filters bots. -->
-    <form class="submit reveal d1" id="submitForm" name="get-involved" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="get-involved">
-      <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-      <div class="field">
-        <label for="audience">I am a...</label>
-        <select id="audience" name="audience" required>
-          <option value="" disabled selected>Choose one</option>
-          <option value="local">Local</option>
-          <option value="creative">Creative / Architect</option>
-          <option value="business">Business / Developer / Council</option>
-        </select>
-      </div>
-
-      <div class="field-group" id="group-local" hidden>
-        <div class="field">
-          <label for="local-where">Where is the space?</label>
-          <input id="local-where" name="local_where" type="text" placeholder="Street name or corner">
-        </div>
-        <div class="field">
-          <label for="local-what">What is there now?</label>
-          <input id="local-what" name="local_what" type="text" placeholder="Empty lot, car park, blank wall">
-        </div>
-        <div class="field">
-          <label for="local-opportunity">What opportunity do you see here?</label>
-          <textarea id="local-opportunity" name="local_opportunity" placeholder="What could it become?"></textarea>
-        </div>
-        <div class="field">
-          <label for="local-email">Your email address</label>
-          <input id="local-email" name="local_email" type="email" placeholder="you@example.com">
-        </div>
-      </div>
-
-      <div class="field-group" id="group-creative" hidden>
-        <div class="field">
-          <label for="creative-specialty">My specialty is...</label>
-          <input id="creative-specialty" name="creative_specialty" type="text" placeholder="Architecture, 3D rendering, urban planning, graphic design">
-        </div>
-        <div class="field">
-          <label for="creative-collab">How would you like to collaborate?</label>
-          <textarea id="creative-collab" name="creative_collab" placeholder="I have a site I've already designed, or I want to help render community submissions"></textarea>
-        </div>
-        <div class="field">
-          <label for="creative-portfolio">Link to portfolio or social profile</label>
-          <input id="creative-portfolio" name="creative_portfolio" type="text" placeholder="A link works best">
-        </div>
-        <div class="field">
-          <label for="creative-email">Your email address</label>
-          <input id="creative-email" name="creative_email" type="email" placeholder="you@example.com">
-        </div>
-      </div>
-
-      <div class="field-group" id="group-business" hidden>
-        <div class="field">
-          <label for="biz-org">Organisation or company name</label>
-          <input id="biz-org" name="biz_org" type="text" placeholder="Your organisation">
-        </div>
-        <div class="field">
-          <label for="biz-project">What space, site, or project are you looking at?</label>
-          <input id="biz-project" name="biz_project" type="text" placeholder="Tell us where">
-        </div>
-        <div class="field">
-          <label for="biz-help">How can ReThinkWelly help?</label>
-          <textarea id="biz-help" name="biz_help" placeholder="Public visualisations for Council, community feedback, or a laneway activation"></textarea>
-        </div>
-        <div class="field">
-          <label for="biz-email">Your email address</label>
-          <input id="biz-email" name="biz_email" type="email" placeholder="you@example.com">
-        </div>
-      </div>
-
-      <button class="btn btn--brand btn--lg" type="submit" id="submitBtn" disabled>Choose an option above</button>
-      <p class="form-note" id="formNote">Select who you are to get started.</p>
-    </form>
-  </div>
-</section>
-
-<!-- ============ JOIN THE COLLECTIVE ============ -->
-<section id="collective" style="background:var(--ink);color:var(--paper)">
-  <div class="wrap">
-    <div class="collective-grid collective-grid--four" style="margin-top:0">
-      <div class="collective-card reveal">
-        <span class="role">For Locals</span>
-        <p class="quote">You walk past these spaces every day. Share your ideas: you do not need a grand vision, just point us toward a site that deserves better.</p>
-      </div>
-      <div class="collective-card reveal d1">
-        <span class="role">For Creatives &amp; Architects</span>
-        <p class="quote">Bring your skills, your imagination, and your boldest design concepts to help us make the future of Wellington visible.</p>
-      </div>
-      <div class="collective-card reveal d2">
-        <span class="role">For Businesses &amp; Developers</span>
-        <p class="quote">Foot traffic follows beauty. Partner with us to see what iconic, people-first development could unlock for your neighbourhood.</p>
-      </div>
-      <div class="collective-card reveal d3">
-        <span class="role">For Council &amp; Planners</span>
-        <p class="quote">Let us help you start the conversation early. Use our community-driven concepts to build public momentum for bolder planning decisions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GET INVOLVED STRIP ============ -->
-<section class="cta gi-strip">
+<!-- ============ GET INVOLVED: header + role cards + 4 forms ============ -->
+<section class="cta page-intro gi-page" id="submit">
   <div class="wrap">
     <div class="reveal">
-      <!-- ===== EDIT HERE: strip copy ===== -->
-      <h2 class="h2">See it. <span class="ser">Shape it.</span> Share it.</h2>
-      <p class="lead">Locals, creatives, and businesses: find your role in reshaping Wellington.</p>
+      <!-- ===== EDIT HERE: page heading ===== -->
+      <h1 class="h2">Get <span class="ser">involved.</span></h1>
+      <p class="lead">Suggest a space, share your skills or explore working together.</p>
     </div>
-    <a class="btn btn--lg reveal d1" href="get-involved.html">Get Involved</a>
+
+    <div class="role-cards reveal d1" role="group" aria-label="Choose how you'd like to get involved">
+      <button class="role-card" type="button" data-role="local" aria-pressed="false" aria-controls="form-local">
+        <span class="rc-title">I'm a local</span>
+        <span class="rc-desc">Point us to a space that deserves better. No big vision needed.</span>
+      </button>
+      <button class="role-card" type="button" data-role="creative" aria-pressed="false" aria-controls="form-creative">
+        <span class="rc-title">I'm a creative or architect</span>
+        <span class="rc-desc">Help us show what Wellington could look like.</span>
+      </button>
+      <button class="role-card" type="button" data-role="business" aria-pressed="false" aria-controls="form-business">
+        <span class="rc-title">I'm a business or developer</span>
+        <span class="rc-desc">Explore what an underused space could become.</span>
+      </button>
+      <button class="role-card" type="button" data-role="council" aria-pressed="false" aria-controls="form-council">
+        <span class="rc-title">I'm from the Council or a planning team</span>
+        <span class="rc-desc">Connect with us about ideas for Wellington's spaces.</span>
+      </button>
+    </div>
+
+    <!-- Netlify Forms: four separate forms, each listed under Forms in the Netlify dashboard.
+         All four stay in the static HTML so Netlify can detect them; JS only shows the chosen one. -->
+    <div class="gi-forms" id="forms">
+
+      <!-- FORM 1: I'm a local -->
+      <form class="submit gi-form" id="form-local" data-role="local" name="suggest-space" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" data-success="Thanks for your suggestion. You can follow @rethinkwelly to see the latest ideas." hidden>
+        <input type="hidden" name="form-name" value="suggest-space">
+        <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="ss-where">Where is the space?</label>
+          <span class="help" id="ss-where-help">Street name or nearby landmark</span>
+          <input id="ss-where" name="where" type="text" required aria-describedby="ss-where-help">
+        </div>
+        <div class="field">
+          <label for="ss-now">What's there now?</label>
+          <input id="ss-now" name="whats_there_now" type="text" required>
+        </div>
+        <div class="field">
+          <label for="ss-could">What could it become? <span class="opt">(optional)</span></label>
+          <span class="help" id="ss-could-help">No detailed plan needed. A simple suggestion is enough.</span>
+          <textarea id="ss-could" name="what_could_it_become" aria-describedby="ss-could-help"></textarea>
+        </div>
+        <div class="field">
+          <label for="ss-photo">Add a photo <span class="opt">(optional)</span></label>
+          <input id="ss-photo" name="photo" type="file" accept="image/*">
+        </div>
+        <div class="field">
+          <label for="ss-name">Your name <span class="opt">(optional)</span></label>
+          <input id="ss-name" name="name" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="ss-email">Your email</label>
+          <input id="ss-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <button class="btn btn--brand btn--lg" type="submit">Send suggestion</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- FORM 2: I'm a creative or architect -->
+      <form class="submit gi-form" id="form-creative" data-role="creative" name="creative-contribution" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-success="Thanks for getting in touch. Your message has been submitted." hidden>
+        <input type="hidden" name="form-name" value="creative-contribution">
+        <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="cc-specialty">Your specialty</label>
+          <select id="cc-specialty" name="specialty" required>
+            <option value="" selected disabled>Choose one</option>
+            <option>Architecture</option>
+            <option>Landscape</option>
+            <option>3D / Visualisation</option>
+            <option>Illustration</option>
+            <option>Photography</option>
+            <option>Writing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cc-how">How would you like to contribute?</label>
+          <textarea id="cc-how" name="how_to_contribute" required></textarea>
+        </div>
+        <div class="field">
+          <label for="cc-link">Portfolio or social profile link <span class="opt">(optional)</span></label>
+          <input id="cc-link" name="portfolio_link" type="url" placeholder="https://">
+        </div>
+        <div class="field">
+          <label for="cc-email">Your email</label>
+          <input id="cc-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <button class="btn btn--brand btn--lg" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- FORM 3: I'm a business or developer -->
+      <form class="submit gi-form" id="form-business" data-role="business" name="business-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-success="Thanks for getting in touch. Your message has been submitted." hidden>
+        <input type="hidden" name="form-name" value="business-enquiry">
+        <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="be-org">Organisation or company name</label>
+          <input id="be-org" name="organisation" type="text" required autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="be-space">What space, site or project are you looking at?</label>
+          <textarea id="be-space" name="space_site_or_project" required></textarea>
+        </div>
+        <div class="field">
+          <label for="be-how">How could we work together?</label>
+          <textarea id="be-how" name="how_could_we_work_together" required></textarea>
+        </div>
+        <div class="field">
+          <label for="be-email">Your email</label>
+          <input id="be-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <button class="btn btn--brand btn--lg" type="submit">Send enquiry</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- FORM 4: I'm from the Council or a planning team -->
+      <form class="submit gi-form" id="form-council" data-role="council" name="council-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-success="Thanks for getting in touch. Your message has been submitted." hidden>
+        <input type="hidden" name="form-name" value="council-enquiry">
+        <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="ce-org">Council or organisation name</label>
+          <input id="ce-org" name="organisation" type="text" required autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="ce-space">What space, site or project are you looking at?</label>
+          <textarea id="ce-space" name="space_site_or_project" required></textarea>
+        </div>
+        <div class="field">
+          <label for="ce-how">How could we work together?</label>
+          <textarea id="ce-how" name="how_could_we_work_together" required></textarea>
+        </div>
+        <div class="field">
+          <label for="ce-email">Your email</label>
+          <input id="ce-email" name="email" type="email" required autocomplete="email">
+        </div>
+        <button class="btn btn--brand btn--lg" type="submit">Send enquiry</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+    </div>
   </div>
 </section>
 
@@ -564,21 +619,15 @@ html.js .reveal.d3{transition-delay:.27s}
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-left reveal">
-        <div class="foot-wm"><span class="wm"><i>Re</i>Think<b>Welly.</b></span></div>
         <div class="foot-social">
-        <p class="follow-label">Follow</p>
+        <p class="follow-label">Follow Us</p>
         <div class="follow-icons" aria-label="Social links">
           <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
           <a href="https://www.linkedin.com/company/rethinkwelly" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21h-4V9Z"/></svg></a>
         </div>
         </div>
       </div>
-      <nav class="foot-nav reveal d1" aria-label="Footer">
-        <a href="visions.html">Ideas</a>
-        <a href="about.html">About</a>
-        <a href="get-involved.html">Get Involved</a>
-      </nav>
-    </div>
+</div>
     <div class="foot-bottom">
       <span>Copyright &copy; <span id="year">2026</span>. ReThinkWelly.</span>
       <span><a href="https://rethinkwelly.com">rethinkwelly.com</a> <span class="sep">&#183;</span> <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">@rethinkwelly</a></span>
@@ -651,39 +700,48 @@ html.js .reveal.d3{transition-delay:.27s}
 
   /* Instagram feed is the Behold widget (self-contained). No JS needed here. */
 
-  /* dynamic "Get Involved" form: reveal fields for the chosen audience and
-     toggle required so hidden fields never block submission */
+  /* Get Involved: role cards reveal one of four Netlify forms.
+     Each form keeps its own text while switching. Success only shows after Netlify accepts the post. */
   (function(){
-    var select = document.getElementById("audience");
-    if(!select) return;
-    var groups = { local: document.getElementById("group-local"),
-                   creative: document.getElementById("group-creative"),
-                   business: document.getElementById("group-business") };
-    var btn = document.getElementById("submitBtn");
-    var note = document.getElementById("formNote");
-    var copy = {
-      local:    { btn:"Share your idea", note:"Share your ideas and follow @rethinkwelly on Instagram and LinkedIn!" },
-      creative: { btn:"Join the design collective", note:"" },
-      business: { btn:"Let's talk partnerships", note:"" }
-    };
-    function setRequired(group, on){
-      if(!group) return;
-      group.querySelectorAll("input, textarea").forEach(function(f){
-        if(on) f.setAttribute("required",""); else f.removeAttribute("required");
-      });
-    }
-    select.addEventListener("change", function(){
-      var val = select.value;
-      Object.keys(groups).forEach(function(k){
-        var on = k === val;
-        groups[k].hidden = !on;
-        setRequired(groups[k], on);
-      });
-      if(copy[val]){
-        btn.textContent = copy[val].btn;
-        note.textContent = copy[val].note;
-        btn.disabled = false;
+    var cards = [].slice.call(document.querySelectorAll(".role-card"));
+    if(!cards.length) return;
+    var forms = [].slice.call(document.querySelectorAll(".gi-form"));
+    function choose(role, scroll){
+      cards.forEach(function(c){ c.setAttribute("aria-pressed", c.getAttribute("data-role") === role ? "true" : "false"); });
+      var shown = null;
+      forms.forEach(function(f){ var on = f.getAttribute("data-role") === role; f.hidden = !on; if(on) shown = f; });
+      if(scroll && shown && window.innerWidth <= 860){
+        shown.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
       }
+    }
+    cards.forEach(function(c){ c.addEventListener("click", function(){ choose(c.getAttribute("data-role"), true); }); });
+    var m = /[?&]role=(local|creative|business|council)(?:&|$)/.exec(window.location.search);
+    if(m) choose(m[1], false);
+
+    forms.forEach(function(form){
+      var btn = form.querySelector('button[type="submit"]');
+      var status = form.querySelector(".form-status");
+      var label = btn.textContent;
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+        status.className = "form-status"; status.textContent = "";
+        btn.disabled = true; btn.textContent = "Sending...";
+        var data = new FormData(form);
+        var hasFile = !!form.querySelector('input[type="file"]');
+        var opts = hasFile
+          ? {method:"POST", body:data}
+          : {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:new URLSearchParams(data).toString()};
+        fetch("/", opts).then(function(r){
+          if(!r.ok) throw new Error("HTTP " + r.status);
+          form.reset();
+          status.className = "form-status ok";
+          status.textContent = form.getAttribute("data-success");
+        }).catch(function(){
+          status.className = "form-status err";
+          status.textContent = "Sorry, that didn't send. Please check your connection and try again.";
+        }).then(function(){ btn.disabled = false; btn.textContent = label; });
+      });
     });
   })();
 

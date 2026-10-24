@@ -171,6 +171,8 @@ section{padding:clamp(64px,9vw,132px) 0}
 .step .num{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--brand);line-height:1;margin-bottom:.5rem;display:block}
 .step h3{font-size:1.4rem;letter-spacing:-.02em;margin-bottom:.4em}
 .step p{color:var(--muted-dark);margin:0}
+.step-icon{display:block;width:28px;height:28px;stroke:var(--brand);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.65rem}
+.ideas-how{padding-top:0}
 .how .aside{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--line-dark);padding-top:28px;
   display:flex;flex-wrap:wrap;gap:16px 40px;align-items:baseline}
 .how .aside .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3.4vw,2.4rem);color:#fff;letter-spacing:-.01em;max-width:20ch}
@@ -306,14 +308,14 @@ footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 4
 .foot-wm .wm b{color:var(--brand)}
 .foot-sub{color:var(--brand);font-weight:600;letter-spacing:.02em;margin-top:.6em}
 .foot-tag{color:#d8d3ca;max-width:44ch;margin-top:1.1em}
-.foot-social{margin-top:1.6em}
-.follow-label{font-weight:700;font-size:clamp(1.1rem,1.8vw,1.25rem);color:var(--paper);margin:0 0 .6em}
+.foot-social{margin-top:0;display:flex;align-items:center;gap:12px}
+.follow-label{font-weight:700;font-size:clamp(1.1rem,1.8vw,1.25rem);color:var(--paper);margin:0}
 .follow-icons{display:flex;gap:20px;align-items:center}
 .follow-icons a{display:grid;place-items:center;color:var(--paper);text-decoration:none;transition:color .2s,transform .25s var(--ease)}
 .follow-icons a:hover{color:var(--brand);transform:translateY(-3px)}
 .follow-icons svg{width:28px;height:28px;fill:currentColor}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
-  border-top:1px solid var(--line-dark);margin-top:clamp(40px,6vw,64px);padding-top:24px;color:#9c968b;font-size:.9rem}
+  margin-top:clamp(40px,6vw,64px);padding-top:24px;color:#9c968b;font-size:.9rem}
 .foot-bottom a{color:#d8d3ca;text-decoration:none}
 .foot-bottom .sep{color:var(--brand)}
 
@@ -321,7 +323,6 @@ footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,96px) 0 4
 header{background:var(--brand)}
 header .btn--brand{--bg:var(--ink);--fg:var(--paper);border-color:var(--ink)}
 header .btn--brand:hover{--bg:#2a2826}
-header .nav-cta[aria-current="page"]{box-shadow:0 0 0 2px var(--brand),0 0 0 4px var(--ink)}
 header .nav-links a:hover{text-decoration-color:var(--ink)}
 @media(max-width:680px){header .nav-menu{background:var(--brand)}}
 
@@ -347,12 +348,13 @@ html.js .reveal.d3{transition-delay:.27s}
 }
 
 /* ---------- multi-page nav (Visions / About / Get Involved) ---------- */
-.nav-links{display:flex;align-items:center;gap:clamp(16px,2.4vw,28px)}
-.nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1rem;
-  text-underline-offset:6px;text-decoration-thickness:2px;transition:color .2s}
-.nav-links a:hover{text-decoration-line:underline;text-decoration-color:var(--line)}
-.nav-links a[aria-current="page"]{font-weight:800;text-decoration-line:underline;text-decoration-color:var(--ink)}
-.nav-cta[aria-current="page"]{box-shadow:inset 0 0 0 2px var(--ink)}
+.nav-links{display:flex;align-items:center;gap:4px;border:1.5px solid var(--ink);border-radius:999px;padding:4px}
+.nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1rem;padding:6px 16px;border-radius:999px;transition:background .15s,color .15s}
+.nav-links a:hover{background:rgba(18,17,16,.08);text-decoration:none}
+.nav-links a[aria-current="page"]{background:var(--ink);color:var(--paper);font-weight:700;text-decoration:none}
+.nav-links .nav-suggest{background:var(--ink);color:var(--brand);font-weight:700}
+.nav-links .nav-suggest:hover{background:var(--ink-2);color:var(--brand)}
+.nav-links .nav-suggest[aria-current="page"]{background:var(--ink);color:var(--brand)}
 .nav-toggle{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);
   background:transparent;color:var(--ink);cursor:pointer;place-items:center;padding:0}
 .nav-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
@@ -361,7 +363,7 @@ html.js .reveal.d3{transition-delay:.27s}
 .nav-toggle[aria-expanded="true"] .x{display:block}
 .nav-menu{display:none}
 @media(max-width:680px){
-  .nav-links,.nav-right>.nav-cta{display:none}
+  .nav-links{display:none}
   .nav-toggle{display:grid}
   .nav-menu{position:absolute;left:0;right:0;top:100%;background:var(--paper);
     border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(0,0,0,.08);padding:8px 0 22px}
@@ -396,11 +398,15 @@ html.js .reveal.d3{transition-delay:.27s}
 @media(max-width:560px){.collective-grid--four{grid-template-columns:1fr}}
 
 /* ---------- footer page links ---------- */
-.foot-top{align-items:flex-end}
-.foot-nav{display:flex;flex-wrap:wrap;gap:12px 40px;font-weight:600;justify-content:flex-end}
-.foot-nav a{color:#d8d3ca;text-decoration:none;transition:color .2s}
-.foot-nav a:hover{color:var(--brand)}
-@media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}.foot-nav{justify-content:flex-start;gap:12px 28px}}
+.foot-top{align-items:center}
+@media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}}
+
+/* ---------- shared: stacked dark sections + plain text links ---------- */
+.sec-line{}
+.text-link{display:inline-block;color:var(--brand);font-weight:700;text-decoration:none;
+  border-bottom:2px solid transparent;transition:border-color .2s}
+.text-link:hover,.text-link:focus-visible{border-color:var(--brand)}
+.text-link:focus-visible{outline:3px solid var(--brand);outline-offset:4px;border-radius:2px}
 </style>
 </head>
 <body>
@@ -417,8 +423,10 @@ html.js .reveal.d3{transition-delay:.27s}
       <nav class="nav-links" aria-label="Main">
         <a href="visions.html" aria-current="page">Ideas</a>
         <a href="about.html">About</a>
+      
+        <a class="nav-suggest" href="get-involved.html?role=local">Suggest a space</a>
       </nav>
-      <a class="btn btn--brand nav-cta" href="get-involved.html">Get Involved</a>
+      
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
         <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -429,7 +437,7 @@ html.js .reveal.d3{transition-delay:.27s}
     <div class="wrap">
       <a href="visions.html" aria-current="page">Ideas</a>
       <a href="about.html">About</a>
-      <a class="btn btn--brand" href="get-involved.html">Get Involved</a>
+      <a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a>
     </div>
   </nav>
 </header>
@@ -440,15 +448,28 @@ html.js .reveal.d3{transition-delay:.27s}
 <section class="how page-intro">
   <div class="wrap">
     <h1 class="how-title reveal">
-      <span class="how-line">Real spaces.</span>
-      <span class="how-line">Bold ideas.</span>
-      <span class="how-line ser" style="color:var(--brand)">No permission needed.</span>
+      <span class="how-line">Real places.</span>
+      <span class="how-line">Bold possibilities.</span>
+      <span class="how-line ser" style="color:var(--brand)">Ideas worth sharing.</span>
     </h1>
+</div>
+</section>
+
+<!-- ============ STEPS: see it / shape it / share it ============ -->
+<section class="how ideas-how" aria-labelledby="ideas-how-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="ideas-how-title">How it works</h2>
     <div class="steps">
       <!-- ===== EDIT HERE: steps ===== -->
-      <div class="step reveal"><span class="num">01</span><h3>See it</h3><p>An empty section on a busy street. A carpark where a laneway could be. A building crying out for something new. If you see an opportunity Wellington is wasting, point us in the right direction.</p></div>
-      <div class="step reveal d1"><span class="num">02</span><h3>Shape it</h3><p>We use architectural visualisation to bypass the $50k brief and government red tape. We render bold, specific designs grounded in the real fabric and character of Te Whanganui-a-Tara.</p></div>
-      <div class="step reveal d2"><span class="num">03</span><h3>Share it</h3><p>The vision goes public here and on social media, out into the world for the city to react to, debate, and take further. No council approval needed, just a simple question: <span style="color:var(--brand)">what could this space actually be?</span></p></div>
+      <div class="step reveal">
+        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span class="num">01</span><h3>See it</h3><p>An overlooked space on a busy street. A car park that could become a laneway. A building with room for a new purpose. See a place in Te Whanganui-a-Tara with potential? Point us in the right direction.</p></div>
+      <div class="step reveal d1">
+        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+        <span class="num">02</span><h3>Shape it</h3><p>We create architectural visualisations to explore what a place could become, grounded in its real setting and character. These are independent concepts, not approved plans or promises of development.</p></div>
+      <div class="step reveal d2">
+        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        <span class="num">03</span><h3>Share it</h3><p>We share the ideas here and on social media to invite people to react, discuss and build on them. No formal proposal, just a starting point and a simple question: <span style="color:var(--brand)">what could this space be?</span></p></div>
     </div>
   </div>
 </section>
@@ -543,38 +564,20 @@ html.js .reveal.d3{transition-delay:.27s}
   </div>
 </section>
 
-<!-- ============ GET INVOLVED STRIP ============ -->
-<section class="cta gi-strip">
-  <div class="wrap">
-    <div class="reveal">
-      <!-- ===== EDIT HERE: strip copy ===== -->
-      <h2 class="h2">See it. <span class="ser">Shape it.</span> Share it.</h2>
-      <p class="lead">Locals, creatives, and businesses: find your role in reshaping Wellington.</p>
-    </div>
-    <a class="btn btn--lg reveal d1" href="get-involved.html">Get Involved</a>
-  </div>
-</section>
-
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-left reveal">
-        <div class="foot-wm"><span class="wm"><i>Re</i>Think<b>Welly.</b></span></div>
         <div class="foot-social">
-        <p class="follow-label">Follow</p>
+        <p class="follow-label">Follow Us</p>
         <div class="follow-icons" aria-label="Social links">
           <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
           <a href="https://www.linkedin.com/company/rethinkwelly" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21h-4V9Z"/></svg></a>
         </div>
         </div>
       </div>
-      <nav class="foot-nav reveal d1" aria-label="Footer">
-        <a href="visions.html">Ideas</a>
-        <a href="about.html">About</a>
-        <a href="get-involved.html">Get Involved</a>
-      </nav>
-    </div>
+</div>
     <div class="foot-bottom">
       <span>Copyright &copy; <span id="year">2026</span>. ReThinkWelly.</span>
       <span><a href="https://rethinkwelly.com">rethinkwelly.com</a> <span class="sep">&#183;</span> <a href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">@rethinkwelly</a></span>
@@ -582,7 +585,7 @@ html.js .reveal.d3{transition-delay:.27s}
   </div>
 </footer>
 
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html">Get Involved</a></div>
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a></div>
 
 <script>
 (function(){
