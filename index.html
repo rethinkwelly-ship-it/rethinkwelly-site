@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ReThinkWelly | Te Whanganui-a-Tara, reimagined</title>
-<meta name="description" content="We take the spaces Wellington has forgotten about and show what they could become. Real spaces. Bold ideas. No permission needed. Dream a little.">
+<meta name="description" content="Independent, grassroots ideas for what Wellington could become.">
 
 <meta property="og:title" content="ReThinkWelly | Wellington, reimagined">
-<meta property="og:description" content="Real spaces. Bold ideas. No permission needed. Dream a little.">
+<meta property="og:description" content="Independent, grassroots ideas for what Wellington could become.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rethinkwelly.com">
 <meta property="og:image" content="images/courtenay-after.jpg">
@@ -557,9 +557,9 @@ footer{padding-top:40px}
   <div class="wrap">
     <!-- ===== EDIT HERE: hero copy ===== -->
     <h1>What if Wellington dared to <span class="ser">dream?</span></h1>
-    <p class="lede">We pick underused spaces around Wellington and show what they could become.</p>
+    <p class="lede">Wellington's best corners are often the ones we walk past. ReThinkWelly is an independent, grassroots initiative exploring what Wellington could become, and who could help shape it.</p>
     <div class="cta-row">
-      <a class="btn btn--brand btn--lg" href="visions.html">See the ideas</a>
+      <a class="btn btn--brand btn--lg" href="visions.html">Explore the ideas</a>
       <a class="btn btn--ghost btn--lg on-dark" href="get-involved.html?role=local">Suggest a space</a>
     </div>
   </div>
@@ -595,18 +595,18 @@ footer{padding-top:40px}
 </section>
 
 <!-- ============ HOW IT WORKS ============ -->
-<section class="how home-how sec-line">
+<section class="how home-how sec-line" aria-label="How it starts">
   <div class="wrap">
     <div class="steps">
       <!-- ===== EDIT HERE: steps ===== -->
       <div class="step reveal">
-        <h3>See it.</h3><p>We spot an underused space, or you tell us about one.</p></div>
+        <h3>See it.</h3><p>We spot a place with potential, or you point us to one.</p></div>
       <div class="step reveal d1">
-        <h3>Shape it.</h3><p>We create an image of what it could become.</p></div>
+        <h3>Shape it.</h3><p>We reimagine it as a concept, true to its setting and character.</p></div>
       <div class="step reveal d2">
-        <h3>Share it.</h3><p>We share the idea to get locals, developers and the Council talking.</p></div>
+        <h3>Share it.</h3><p>We put it out into the city for people to react to and build on.</p></div>
     </div>
-    <p class="more reveal"><a class="text-link" href="visions.html">Explore all the ideas &rarr;</a></p>
+    <p class="more reveal"><a class="text-link" href="visions.html">Explore the ideas &rarr;</a></p>
   </div>
 </section>
 
@@ -615,8 +615,8 @@ footer{padding-top:40px}
   <div class="wrap">
     <div class="reveal">
       <!-- ===== EDIT HERE: closing CTA copy ===== -->
-      <h2 class="h2">Got a space in mind?</h2>
-      <p class="lead">Tell us about a Wellington space that could be better.</p>
+      <h2 class="h2">Know a place worth reimagining?</h2>
+      <p class="lead">Tell us where it is.</p>
     </div>
     <a class="btn btn--lg reveal d1" href="get-involved.html?role=local">Suggest a space</a>
   </div>
@@ -749,6 +749,7 @@ footer{padding-top:40px}
     var iconEl = document.getElementById("wxIcon");
     var condEl = document.getElementById("wxCond");
     var updEl = document.getElementById("wxUpdated");
+    var wxSec = clock.closest ? clock.closest(".wx") : null;
     var URL_WX = "https://api.open-meteo.com/v1/forecast?latitude=-41.2865&longitude=174.7762&current=temperature_2m,weathercode&timezone=Pacific/Auckland";
     var fmt;
     try { fmt = new Intl.DateTimeFormat("en-NZ", {timeZone:"Pacific/Auckland", hour:"numeric", minute:"2-digit", hour12:true}); } catch(e){ fmt = null; }
@@ -795,9 +796,12 @@ footer{padding-top:40px}
         iconEl.textContent = w ? w[1] : "";
         condEl.textContent = w ? w[0] : "";
         now.hidden = false;
+        if(wxSec) wxSec.style.display = "";
         var t = obsTime(c.time);
         updEl.textContent = t ? "Weather updated " + t : "";
-      }).catch(function(){ /* keep the clock and any earlier real reading; never show sample data */ });
+      }).catch(function(){ /* no live data: hide the strip unless an earlier real reading is showing; never show sample data */
+        if(now.hidden && wxSec) wxSec.style.display = "none";
+      });
     }
     loadWeather();
     setInterval(loadWeather, 20 * 60 * 1000);
