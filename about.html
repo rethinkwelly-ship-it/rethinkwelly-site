@@ -147,14 +147,14 @@ section{padding:clamp(64px,9vw,132px) 0}
 .lead{font-size:clamp(1.1rem,1.8vw,1.32rem);color:var(--muted);margin-top:1.1em;max-width:var(--prose)}
 
 /* ---------- mission ---------- */
-.mission{background:var(--ink);color:var(--paper)}
-.mission .h2{color:var(--paper)}
-.mission .h2 .ser{color:var(--brand)}
-.mission .lead{color:var(--muted-dark)}
-.mission .lead b{color:var(--brand)}
+.mission{background:var(--brand);color:var(--ink)}
+.mission .h2{color:var(--ink)}
+.mission .h2 .ser{color:var(--ink)}
+.mission .lead{color:var(--ink-2)}
+.mission .lead b{color:var(--ink)}
 .mission .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:start}
 @media(max-width:840px){.mission .cols{grid-template-columns:1fr;gap:28px}}
-.mission .body p{color:#d8d3ca;font-size:clamp(1.02rem,1.5vw,1.16rem)}
+.mission .body p{color:var(--ink-2);font-size:clamp(1.02rem,1.5vw,1.16rem)}
 .pull{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.4rem,3vw,2.1rem);
   line-height:1.28;color:var(--ink);letter-spacing:-.01em;border-top:2px solid var(--ink);padding-top:1rem}
 .pull b{font-family:var(--sans);font-style:normal;font-weight:800;background:var(--brand);padding:0 .12em;border-radius:3px}
@@ -383,9 +383,9 @@ html.js .reveal.d3{transition-delay:.27s}
 .gi-strip .h2{max-width:20ch}
 
 /* ---------- about: independence note ---------- */
-.indep{background:var(--brand);color:var(--ink)}
-.indep .hl{background:var(--ink);color:var(--brand)}
-.indep .lead{color:var(--ink-2);margin-top:0}
+.indep{background:var(--ink);color:var(--paper)}
+.indep .hl{background:var(--brand);color:var(--ink)}
+.indep .lead{color:var(--muted-dark);margin-top:0}
 
 /* ---------- collective cards: four even columns ---------- */
 .collective-grid--four{grid-template-columns:repeat(4,minmax(0,1fr))}

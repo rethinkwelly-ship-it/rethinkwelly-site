@@ -161,6 +161,8 @@ section{padding:clamp(64px,9vw,132px) 0}
 
 /* ---------- how it works ---------- */
 .how{background:var(--ink);color:var(--paper)}
+.how-title{display:flex;flex-direction:column;gap:.1em;font-weight:800;letter-spacing:-.03em;line-height:1.0}
+.how-line{font-size:clamp(2.4rem,7vw,5.2rem);display:block}
 .how .h2{color:var(--paper)}
 .how .lead{color:var(--muted-dark)}
 .how .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.5vw,30px);margin-top:clamp(36px,5vw,60px)}
@@ -436,8 +438,11 @@ html.js .reveal.d3{transition-delay:.27s}
 <!-- ============ HOW IT WORKS ============ -->
 <section class="how page-intro">
   <div class="wrap">
-    <h1 class="h2 reveal">Real spaces. Bold ideas. <span class="ser" style="color:var(--brand)">No permission</span> needed.</h1>
-    <p class="lead reveal">We identify underutilised or neglected spaces across the city, then use architectural visualisation to demonstrate what they could become. The results get shared publicly, for people to react to, build on, and push further.</p>
+    <h1 class="how-title reveal">
+      <span class="how-line">Real spaces.</span>
+      <span class="how-line">Bold ideas.</span>
+      <span class="how-line ser" style="color:var(--brand)">No permission needed.</span>
+    </h1>
     <div class="steps">
       <!-- ===== EDIT HERE: steps ===== -->
       <div class="step reveal"><span class="num">01</span><h3>See it</h3><p>An empty section on a busy street. A carpark where a laneway could be. A building crying out for something new. If you see an opportunity Wellington is wasting, point us in the right direction.</p></div>
