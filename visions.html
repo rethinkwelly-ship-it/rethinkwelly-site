@@ -401,6 +401,13 @@ html.js .reveal.d3{transition-delay:.27s}
 .foot-nav a{color:#d8d3ca;text-decoration:none;transition:color .2s}
 .foot-nav a:hover{color:var(--brand)}
 @media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}.foot-nav{justify-content:flex-start;gap:12px 28px}}
+
+/* ---------- shared: stacked dark sections + plain text links ---------- */
+.sec-line{border-top:1px solid var(--line-dark)}
+.text-link{display:inline-block;color:var(--brand);font-weight:700;text-decoration:none;
+  border-bottom:2px solid transparent;transition:border-color .2s}
+.text-link:hover,.text-link:focus-visible{border-color:var(--brand)}
+.text-link:focus-visible{outline:3px solid var(--brand);outline-offset:4px;border-radius:2px}
 </style>
 </head>
 <body>
@@ -418,7 +425,7 @@ html.js .reveal.d3{transition-delay:.27s}
         <a href="visions.html" aria-current="page">Ideas</a>
         <a href="about.html">About</a>
       </nav>
-      <a class="btn btn--brand nav-cta" href="get-involved.html">Get Involved</a>
+      <a class="btn btn--brand nav-cta" href="get-involved.html?role=local">Suggest a space</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
         <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -429,7 +436,7 @@ html.js .reveal.d3{transition-delay:.27s}
     <div class="wrap">
       <a href="visions.html" aria-current="page">Ideas</a>
       <a href="about.html">About</a>
-      <a class="btn btn--brand" href="get-involved.html">Get Involved</a>
+      <a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a>
     </div>
   </nav>
 </header>
@@ -582,7 +589,7 @@ html.js .reveal.d3{transition-delay:.27s}
   </div>
 </footer>
 
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html">Get Involved</a></div>
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a></div>
 
 <script>
 (function(){

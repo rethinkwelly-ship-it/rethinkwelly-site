@@ -383,16 +383,6 @@ html.js .reveal.d3{transition-delay:.27s}
 .gi-strip .btn{--bg:var(--brand);--fg:var(--ink);border-color:var(--ink)}
 .gi-strip .h2{max-width:20ch}
 
-/* ---------- home: counter cards ---------- */
-.counter-strip{background:var(--ink);color:var(--paper);padding:clamp(36px,5vw,64px) 0}
-.stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.5vw,28px);max-width:900px}
-@media(max-width:560px){.stat-grid{grid-template-columns:1fr}}
-.stat-card{background:var(--brand);color:var(--ink);border:2px solid var(--ink);border-radius:var(--radius);
-  padding:clamp(26px,4vw,40px) 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
-.stat-icon svg{width:36px;height:36px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.stat-num{font-weight:900;font-size:clamp(3rem,7vw,4.75rem);line-height:1;letter-spacing:-.04em;margin-top:12px}
-.stat-label{font-weight:700;font-size:clamp(1.05rem,1.8vw,1.25rem);margin-top:10px}
-
 /* ---------- about: independence note ---------- */
 .indep{background:var(--ink);color:var(--paper)}
 .indep .hl{background:var(--brand);color:var(--ink)}
@@ -409,6 +399,46 @@ html.js .reveal.d3{transition-delay:.27s}
 .foot-nav a{color:#d8d3ca;text-decoration:none;transition:color .2s}
 .foot-nav a:hover{color:var(--brand)}
 @media (max-width:640px){.foot-top{flex-direction:column;align-items:flex-start}.foot-nav{justify-content:flex-start;gap:12px 28px}}
+
+/* ---------- shared: stacked dark sections + plain text links ---------- */
+.sec-line{border-top:1px solid var(--line-dark)}
+.text-link{display:inline-block;color:var(--brand);font-weight:700;text-decoration:none;
+  border-bottom:2px solid transparent;transition:border-color .2s}
+.text-link:hover,.text-link:focus-visible{border-color:var(--brand)}
+.text-link:focus-visible{outline:3px solid var(--brand);outline-offset:4px;border-radius:2px}
+
+/* ---------- home: featured idea ---------- */
+.featured{background:var(--ink);color:var(--paper)}
+.eyebrow{display:block;color:var(--brand);font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 18px}
+.featured .ba{aspect-ratio:16/9}
+@media(min-width:861px){.featured .ba{aspect-ratio:2/1}}
+.featured .ba:focus-visible{outline-color:var(--brand)}
+.featured-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;margin-top:22px}
+.featured-foot .ba-cap .desc{color:var(--muted-dark)}
+
+/* ---------- home: how it works ---------- */
+.home-how .steps{margin-top:0}
+.home-how .step h3{color:var(--paper)}
+.home-how .more{margin-top:clamp(32px,4vw,48px)}
+
+/* ---------- home: small Instagram strip + independence note ---------- */
+.ig-strip{padding:clamp(28px,4vw,40px) 0}
+.ig-strip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px}
+.ig-label{margin:0;color:var(--muted-dark);font-weight:600}
+.indep-mini{background:var(--ink);color:var(--paper);padding:clamp(22px,3vw,30px) 0}
+.indep-mini p{margin:0;color:var(--muted-dark);font-size:.98rem}
+.indep-mini .text-link{margin-left:.4em}
+
+/* ---------- home: Wellington weather strip ---------- */
+.wx{display:none;background:var(--ink);color:var(--paper);padding:20px 0}
+html.js .wx{display:block}
+.wx-inner{min-height:3.6em}
+.wx-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px}
+.wx-label{margin:0;color:var(--brand);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.wx-line{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+.wx-line .wx-sep{color:var(--brand);margin:0 .35em}
+.wx-updated{margin:4px 0 0;color:#9c968b;font-size:.8rem;min-height:1.3em}
+@media(max-width:640px){.wx-row{flex-direction:column;gap:4px}}
 </style>
 <script>
 /* old single-page links (eg. /#submit) forward to their new pages */
@@ -434,7 +464,7 @@ html.js .reveal.d3{transition-delay:.27s}
         <a href="visions.html">Ideas</a>
         <a href="about.html">About</a>
       </nav>
-      <a class="btn btn--brand nav-cta" href="get-involved.html">Get Involved</a>
+      <a class="btn btn--brand nav-cta" href="get-involved.html?role=local">Suggest a space</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
         <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -445,7 +475,7 @@ html.js .reveal.d3{transition-delay:.27s}
     <div class="wrap">
       <a href="visions.html">Ideas</a>
       <a href="about.html">About</a>
-      <a class="btn btn--brand" href="get-involved.html">Get Involved</a>
+      <a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a>
     </div>
   </nav>
 </header>
@@ -459,72 +489,85 @@ html.js .reveal.d3{transition-delay:.27s}
   <div class="wrap">
     <!-- ===== EDIT HERE: hero copy ===== -->
     <h1>What if Wellington dared to <span class="ser">dream?</span></h1>
-    <p class="lede">We reimagine underutilised spaces across the city to inspire the council, challenge developers, and start conversations.</p>
-    <p class="tagline">Dream a little. <b>#ReThinkWelly</b></p>
+    <p class="lede">We pick underused spaces around Wellington and show what they could become.</p>
     <div class="cta-row">
-      <a class="btn btn--ghost btn--lg on-dark" href="visions.html">See the ideas</a>
-      <a class="btn btn--brand btn--lg" href="get-involved.html">Get involved</a>
+      <a class="btn btn--brand btn--lg" href="visions.html">See the ideas</a>
+      <a class="btn btn--ghost btn--lg on-dark" href="get-involved.html?role=local">Suggest a space</a>
     </div>
   </div>
 </section>
 
-<!-- ============ COUNTER STRIP ============ -->
-<section class="counter-strip">
-  <!-- ===== EDIT HERE: counter numbers (change the number inside each .stat-num) ===== -->
-  <div class="wrap stat-grid">
-    <div class="stat-card reveal">
-      <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
-      <span class="stat-num">22</span>
-      <span class="stat-label">Spaces reimagined</span>
-    </div>
-    <div class="stat-card reveal d1">
-      <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span>
-      <span class="stat-num">6</span>
-      <span class="stat-label">Organisations engaged</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ INSTAGRAM ============ -->
-<section class="ig" id="instagram">
+<!-- ============ FEATURED IDEA ============ -->
+<section class="featured sec-line">
   <div class="wrap">
-    <div class="ig-head">
-      <div class="reveal">
-        <h2 class="h2">Opportunities hiding in <span class="ser" style="color:var(--brand)">plain sight.</span></h2>
-        <p class="lead">Every week we take an underutilised space in Wellington and reimagine it. DM us or submit your own ideas through the website.</p>
+    <span class="eyebrow reveal">Featured idea</span>
+    <figure class="ba-figure reveal">
+      <div class="ba" tabindex="0" role="slider" aria-label="Before and after: 134 Courtenay Place" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <img class="before-img" src="images/courtenay-before.jpg" alt="134 Courtenay Place today: a grey intersection with tired buildings" loading="lazy">
+        <img class="after-img"  src="images/courtenay-after.jpg"  alt="134 Courtenay Place reimagined: restored heritage frontages, warm street-level life at golden hour" loading="lazy">
+        <span class="tag before">Before</span><span class="tag after">After</span>
+        <div class="handle"></div>
+        <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
       </div>
-      <a class="ig-link reveal" href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg>
-        @rethinkwelly
-      </a>
+    </figure>
+    <div class="featured-foot reveal">
+      <p class="ba-cap" style="margin:0"><span class="loc">134 Courtenay Place</span><span class="desc">A wind-swept corner becomes a warm, living street frontage.</span></p>
+      <a class="btn btn--brand" href="visions.html">Explore the ideas</a>
     </div>
-
-    <!-- ============ INSTAGRAM FEED: live @rethinkwelly via Behold ============
-         Style the layout (grid/carousel, gaps, rows) from the Behold dashboard.
-         To change accounts, swap the feed-id below for the new feed's ID. -->
-    <div class="ig-embed reveal">
-      <behold-widget feed-id="HHxScaNkl0G6g5LczZbP"></behold-widget>
-      <script>
-        (() => {
-          if(window.__bhldScript)return;window.__bhldScript=true;
-          const d=document,s=d.createElement("script");s.type="module";
-          s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
-        })();
-      </script>
-    </div>
-    <p class="ig-note"><b>@rethinkwelly</b></p>
   </div>
 </section>
 
-<!-- ============ GET INVOLVED STRIP ============ -->
-<section class="cta gi-strip">
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how home-how sec-line">
+  <div class="wrap">
+    <div class="steps">
+      <!-- ===== EDIT HERE: steps ===== -->
+      <div class="step reveal"><span class="num">01</span><h3>See it.</h3><p>We spot an underused space, or you tell us about one.</p></div>
+      <div class="step reveal d1"><span class="num">02</span><h3>Shape it.</h3><p>We create an image of what it could become.</p></div>
+      <div class="step reveal d2"><span class="num">03</span><h3>Share it.</h3><p>We share the idea to get locals, developers and the Council talking.</p></div>
+    </div>
+    <p class="more reveal"><a class="text-link" href="visions.html">Explore all the ideas &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM (small strip) ============ -->
+<section class="ig ig-strip sec-line" id="instagram">
+  <div class="wrap">
+    <p class="ig-label">See the latest ideas on Instagram</p>
+    <a class="ig-link" href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg>
+      @rethinkwelly
+    </a>
+  </div>
+</section>
+
+<!-- ============ INDEPENDENCE NOTE (small) ============ -->
+<section class="indep-mini sec-line">
+  <div class="wrap">
+    <p>Independent. Not affiliated with the Council or government. <a class="text-link" href="about.html">More about ReThinkWelly &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="cta gi-strip sec-line">
   <div class="wrap">
     <div class="reveal">
-      <!-- ===== EDIT HERE: strip copy ===== -->
-      <h2 class="h2">See it. <span class="ser">Shape it.</span> Share it.</h2>
-      <p class="lead">Locals, creatives, and businesses: find your role in reshaping Wellington.</p>
+      <!-- ===== EDIT HERE: closing CTA copy ===== -->
+      <h2 class="h2">Got a space in mind?</h2>
+      <p class="lead">Tell us about a Wellington space that could be better.</p>
     </div>
-    <a class="btn btn--lg reveal d1" href="get-involved.html">Get Involved</a>
+    <a class="btn btn--lg reveal d1" href="get-involved.html?role=local">Suggest a space</a>
+  </div>
+</section>
+
+<!-- ============ WELLINGTON WEATHER (live: Open-Meteo, no key) ============ -->
+<section class="wx sec-line" aria-label="Wellington right now">
+  <div class="wrap wx-inner">
+    <div class="wx-row">
+      <p class="wx-label">In Wellington right now</p>
+      <p class="wx-line" aria-live="polite"><span>Wellington, NZ</span><span id="wxClockWrap" hidden><span class="wx-sep">&#183;</span><span id="wxClock"></span></span><span id="wxNow" hidden><span class="wx-sep">&#183;</span><span id="wxTemp"></span>&deg;C<span class="wx-sep">&#183;</span><span id="wxIcon" aria-hidden="true"></span> <span id="wxCond"></span></span></p>
+    </div>
+    <p class="wx-updated" id="wxUpdated"></p>
   </div>
 </section>
 
@@ -555,7 +598,7 @@ html.js .reveal.d3{transition-delay:.27s}
   </div>
 </footer>
 
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html">Get Involved</a></div>
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a></div>
 
 <script>
 (function(){
@@ -656,6 +699,72 @@ html.js .reveal.d3{transition-delay:.27s}
         btn.disabled = false;
       }
     });
+  })();
+
+  /* Wellington clock + live weather (Open-Meteo, free, no key).
+     Clock ticks every minute; weather refreshes every 20 minutes.
+     Weather only appears once real data arrives; on failure the clock keeps running. */
+  (function(){
+    var clock = document.getElementById("wxClock");
+    if(!clock) return;
+    var clockWrap = document.getElementById("wxClockWrap");
+    var now = document.getElementById("wxNow");
+    var tempEl = document.getElementById("wxTemp");
+    var iconEl = document.getElementById("wxIcon");
+    var condEl = document.getElementById("wxCond");
+    var updEl = document.getElementById("wxUpdated");
+    var URL_WX = "https://api.open-meteo.com/v1/forecast?latitude=-41.2865&longitude=174.7762&current=temperature_2m,weathercode&timezone=Pacific/Auckland";
+    var fmt;
+    try { fmt = new Intl.DateTimeFormat("en-NZ", {timeZone:"Pacific/Auckland", hour:"numeric", minute:"2-digit", hour12:true}); } catch(e){ fmt = null; }
+    function tick(){
+      if(!fmt) return;
+      clock.textContent = fmt.format(new Date()).replace(/\s+/g, " ").toLowerCase();
+      clockWrap.hidden = false;
+    }
+    tick();
+    setTimeout(function(){ tick(); setInterval(tick, 60000); }, (60 - new Date().getSeconds()) * 1000 + 50);
+
+    /* WMO weather codes: [short condition, icon] */
+    var WMO = {
+      0:["Clear","\u2600\uFE0F"], 1:["Mostly clear","\uD83C\uDF24\uFE0F"], 2:["Partly cloudy","\u26C5"], 3:["Overcast","\u2601\uFE0F"],
+      45:["Fog","\uD83C\uDF2B\uFE0F"], 48:["Fog","\uD83C\uDF2B\uFE0F"],
+      51:["Light drizzle","\uD83C\uDF26\uFE0F"], 53:["Drizzle","\uD83C\uDF26\uFE0F"], 55:["Heavy drizzle","\uD83C\uDF27\uFE0F"],
+      56:["Freezing drizzle","\uD83C\uDF27\uFE0F"], 57:["Freezing drizzle","\uD83C\uDF27\uFE0F"],
+      61:["Light rain","\uD83C\uDF26\uFE0F"], 63:["Rain","\uD83C\uDF27\uFE0F"], 65:["Heavy rain","\uD83C\uDF27\uFE0F"],
+      66:["Freezing rain","\uD83C\uDF27\uFE0F"], 67:["Freezing rain","\uD83C\uDF27\uFE0F"],
+      71:["Light snow","\uD83C\uDF28\uFE0F"], 73:["Snow","\uD83C\uDF28\uFE0F"], 75:["Heavy snow","\uD83C\uDF28\uFE0F"], 77:["Snow grains","\uD83C\uDF28\uFE0F"],
+      80:["Showers","\uD83C\uDF26\uFE0F"], 81:["Showers","\uD83C\uDF27\uFE0F"], 82:["Heavy showers","\uD83C\uDF27\uFE0F"],
+      85:["Snow showers","\uD83C\uDF28\uFE0F"], 86:["Snow showers","\uD83C\uDF28\uFE0F"],
+      95:["Thunderstorm","\u26C8\uFE0F"], 96:["Thunderstorm","\u26C8\uFE0F"], 99:["Thunderstorm","\u26C8\uFE0F"]
+    };
+    /* Open-Meteo returns local Wellington time as "YYYY-MM-DDTHH:MM" */
+    function obsTime(s){
+      var m = /T(\d{2}):(\d{2})/.exec(s || "");
+      if(!m) return "";
+      var h = parseInt(m[1], 10), ap = h >= 12 ? "pm" : "am";
+      h = h % 12 || 12;
+      return h + ":" + m[2] + " " + ap;
+    }
+    function loadWeather(){
+      if(!window.fetch) return;
+      fetch(URL_WX, {cache:"no-store"}).then(function(r){
+        if(!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      }).then(function(d){
+        var c = d && d.current;
+        if(!c || typeof c.temperature_2m !== "number") throw new Error("no data");
+        var code = (c.weathercode != null) ? c.weathercode : c.weather_code;
+        var w = WMO[code];
+        tempEl.textContent = Math.round(c.temperature_2m);
+        iconEl.textContent = w ? w[1] : "";
+        condEl.textContent = w ? w[0] : "";
+        now.hidden = false;
+        var t = obsTime(c.time);
+        updEl.textContent = t ? "Weather updated " + t : "";
+      }).catch(function(){ /* keep the clock and any earlier real reading; never show sample data */ });
+    }
+    loadWeather();
+    setInterval(loadWeather, 20 * 60 * 1000);
   })();
 
   /* mobile sticky CTA after hero */
