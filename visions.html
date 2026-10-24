@@ -171,6 +171,8 @@ section{padding:clamp(64px,9vw,132px) 0}
 .step .num{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--brand);line-height:1;margin-bottom:.5rem;display:block}
 .step h3{font-size:1.4rem;letter-spacing:-.02em;margin-bottom:.4em}
 .step p{color:var(--muted-dark);margin:0}
+.step-icon{display:block;width:28px;height:28px;stroke:var(--brand);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.65rem}
+.ideas-how{padding-top:0}
 .how .aside{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--line-dark);padding-top:28px;
   display:flex;flex-wrap:wrap;gap:16px 40px;align-items:baseline}
 .how .aside .big{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3.4vw,2.4rem);color:#fff;letter-spacing:-.01em;max-width:20ch}
@@ -451,6 +453,25 @@ html.js .reveal.d3{transition-delay:.27s}
       <span class="how-line ser" style="color:var(--brand)">Ideas worth sharing.</span>
     </h1>
 </div>
+</section>
+
+<!-- ============ STEPS: see it / shape it / share it ============ -->
+<section class="how ideas-how" aria-labelledby="ideas-how-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="ideas-how-title">How it works</h2>
+    <div class="steps">
+      <!-- ===== EDIT HERE: steps ===== -->
+      <div class="step reveal">
+        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span class="num">01</span><h3>See it</h3><p>An overlooked space on a busy street. A car park that could become a laneway. A building with room for a new purpose. See a place in Te Whanganui-a-Tara with potential? Point us in the right direction.</p></div>
+      <div class="step reveal d1">
+        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+        <span class="num">02</span><h3>Shape it</h3><p>We create architectural visualisations to explore what a place could become, grounded in its real setting and character. These are independent concepts, not approved plans or promises of development.</p></div>
+      <div class="step reveal d2">
+        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        <span class="num">03</span><h3>Share it</h3><p>We share the ideas here and on social media to invite people to react, discuss and build on them. No formal proposal, just a starting point and a simple question: <span style="color:var(--brand)">what could this space be?</span></p></div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ GALLERY (centrepiece) ============ -->
