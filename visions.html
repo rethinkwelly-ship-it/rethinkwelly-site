@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ideas | ReThinkWelly</title>
+<title>Imagine | ReThinkWelly</title>
 <meta name="description" content="Before and after concepts for real Wellington places. Drag to see what they could become.">
 
 <meta property="og:title" content="ReThinkWelly | Wellington, reimagined">
@@ -373,7 +373,7 @@ html.js .reveal.d3{transition-delay:.27s}
   .nav-menu a{display:block;padding:14px 0;font-weight:700;font-size:1.15rem;color:var(--ink);
     text-decoration:none;border-bottom:1px solid var(--line)}
   .nav-menu a[aria-current="page"]{font-weight:800;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
-  .nav-menu .btn{display:flex;justify-content:center;margin-top:18px;border-bottom:2px solid var(--ink);padding:.85em 1.4em}
+  .nav-menu .btn{display:flex;justify-content:center;margin-top:18px;border-bottom:2px solid var(--ink);padding:.85em 1.4em;background:var(--ink);color:var(--brand)}
 }
 
 /* ---------- page intro (pages without the photo hero) ---------- */
@@ -448,6 +448,8 @@ header,.nav-menu,footer,.sticky-cta{font-family:var(--font-sans)}
 body{font-size:1rem;line-height:1.6}
 h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:var(--ls-sans)}
 .how-line{font-size:var(--fs-title)}
+.how-title{display:block;font-size:var(--fs-title);line-height:1.1;max-width:22ch;font-weight:700;letter-spacing:var(--ls-sans)}
+.how-title .ser{color:var(--brand)}
 .h2{font-family:var(--sans);font-weight:700;font-size:var(--fs-h2);line-height:1.15;letter-spacing:var(--ls-sans)}
 .lead{font-size:var(--fs-intro);line-height:1.6;font-weight:400}
 p,li,.step p{font-size:1rem;line-height:1.6}
@@ -479,10 +481,10 @@ footer{padding-top:40px}
     <div class="nav-right">
       <!-- ===== EDIT HERE: page links ===== -->
       <nav class="nav-links" aria-label="Main">
-        <a href="visions.html" aria-current="page">Ideas</a>
+        <a href="visions.html" aria-current="page">Imagine</a>
         <a href="about.html">About</a>
       
-        <a class="nav-suggest" href="get-involved.html?role=local">Suggest a space</a>
+        <a class="nav-suggest" href="get-involved.html?role=local">Share an idea</a>
       </nav>
       
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
@@ -493,9 +495,9 @@ footer{padding-top:40px}
   </div>
   <nav class="nav-menu" id="navMenu" aria-label="Mobile">
     <div class="wrap">
-      <a href="visions.html" aria-current="page">Ideas</a>
+      <a href="visions.html" aria-current="page">Imagine</a>
       <a href="about.html">About</a>
-      <a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a>
+      <a class="btn btn--brand" href="get-involved.html?role=local">Share an idea</a>
     </div>
   </nav>
 </header>
@@ -505,11 +507,9 @@ footer{padding-top:40px}
 <!-- ============ HOW IT WORKS ============ -->
 <section class="how page-intro">
   <div class="wrap">
-    <h1 class="how-title reveal">
-      <span class="how-line">Real places.</span>
-      <span class="how-line">New possibilities.</span>
-      <span class="how-line ser" style="color:var(--brand)">Ideas worth sharing.</span>
-    </h1>
+    <h1 class="how-title reveal">Ideas to help shape the <span class="ser">future</span> of Aotearoa's capital city.</h1>
+    <h2 class="lead reveal d1">What could Wellington become?</h2>
+    <p class="lead reveal d2">A place seen differently. An experience you'd love to see return. A new possibility for the city. Here, we share concepts to spark conversation about what Wellington could become.</p>
 </div>
 </section>
 
@@ -547,13 +547,18 @@ footer{padding-top:40px}
           <div class="ba" tabindex="0" role="slider" aria-label="Before and after: 134 Courtenay Place" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
             <img class="before-img" src="images/courtenay-before.jpg" alt="134 Courtenay Place today: a grey intersection with tired buildings">
             <img class="after-img"  src="images/courtenay-after.jpg"  alt="134 Courtenay Place reimagined: restored heritage frontages, warm street-level life at golden hour">
-            <span class="tag before">Before</span><span class="tag after">After</span>
+            <span class="tag before">Today</span><span class="tag after">What could be?</span>
             <div class="handle"></div>
             <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
           </div>
         </figure>
-        <figcaption class="ba-cap"><span class="loc">134 Courtenay Place</span><span class="desc">What if a grey, wind-swept corner had a warm, living street frontage? A spot to stop, eat and meet. Independent concept.</span></figcaption>
-        <p class="ba-prompt">Is this what you want to see on your commute?</p>
+        <figcaption class="ba-cap"><span class="loc">134 Courtenay Place</span></figcaption>
+        <div class="ba-desc">
+          <p><b>Why this place?</b> A grey, wind-swept corner on one of Wellington's busiest streets.</p>
+          <p><b>What could it become?</b> A warm, living street frontage, with somewhere to stop, eat and meet.</p>
+          <p><b>What would you like to see here?</b> Is this what you'd want to see on your commute? Tell us what you'd add.</p>
+        </div>
+        <p class="ba-prompt">ReThinkWelly concept. A starting point for conversation, not a finished design, approved plan or promise of development.</p>
       </div>
 
       <div class="ba-item reveal">
@@ -561,13 +566,18 @@ footer{padding-top:40px}
           <div class="ba" tabindex="0" role="slider" aria-label="Before and after: Hnry Stadium" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
             <img class="before-img" src="images/hnry-before.jpg" alt="Hnry Stadium today: an open-air arena exposed to Wellington weather">
             <img class="after-img"  src="images/hnry-after.jpg"  alt="Hnry Stadium reimagined: a sweeping glass roof over the arena">
-            <span class="tag before">Before</span><span class="tag after">After</span>
+            <span class="tag before">Today</span><span class="tag after">What could be?</span>
             <div class="handle"></div>
             <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
           </div>
         </figure>
-        <figcaption class="ba-cap"><span class="loc">Hnry Stadium</span><span class="desc">What if the Cake Tin had a roof, so games could play on in any weather? A spot to gather, rain or shine. Independent concept.</span></figcaption>
-        <p class="ba-prompt">What events would you want to see here?</p>
+        <figcaption class="ba-cap"><span class="loc">Hnry Stadium</span></figcaption>
+        <div class="ba-desc">
+          <p><b>Why this place?</b> The Cake Tin sits open to Wellington weather all year round.</p>
+          <p><b>What could it become?</b> A stadium with a roof, and a place to gather, rain or shine.</p>
+          <p><b>What would you like to see here?</b> What events would you want to see here?</p>
+        </div>
+        <p class="ba-prompt">ReThinkWelly concept. A starting point for conversation, not a finished design, approved plan or promise of development.</p>
       </div>
 
       <div class="ba-item reveal">
@@ -575,13 +585,18 @@ footer{padding-top:40px}
           <div class="ba" tabindex="0" role="slider" aria-label="Before and after: Left Bank, Cuba Street" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
             <img class="before-img" src="images/leftbank-before.jpg" alt="Left Bank on Cuba Street today: a tired laneway with vacancy signs">
             <img class="after-img"  src="images/leftbank-after.jpg"  alt="Left Bank on Cuba Street reimagined: a lantern-lit laneway alive with people and food">
-            <span class="tag before">Before</span><span class="tag after">After</span>
+            <span class="tag before">Today</span><span class="tag after">What could be?</span>
             <div class="handle"></div>
             <div class="grip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></div>
           </div>
         </figure>
-        <figcaption class="ba-cap"><span class="loc">Left Bank, Cuba Street</span><span class="desc">What if this laneway became a lantern-lit place to linger? A spot to slow down off Cuba Street. Independent concept.</span></figcaption>
-        <p class="ba-prompt">What should Wellington make room for next?</p>
+        <figcaption class="ba-cap"><span class="loc">Left Bank, Cuba Street</span></figcaption>
+        <div class="ba-desc">
+          <p><b>Why this place?</b> A tired laneway just off Cuba Street, marked by vacancy signs.</p>
+          <p><b>What could it become?</b> A lantern-lit laneway, a place to slow down and linger.</p>
+          <p><b>What would you like to see here?</b> What should Wellington make room for next?</p>
+        </div>
+        <p class="ba-prompt">ReThinkWelly concept. A starting point for conversation, not a finished design, approved plan or promise of development.</p>
       </div>
     </div>
   </div>
@@ -592,8 +607,8 @@ footer{padding-top:40px}
   <div class="wrap">
     <div class="ig-head">
       <div class="reveal">
-        <h2 class="h2">See it as it <span class="ser" style="color:var(--brand)">happens.</span></h2>
-        <p class="lead">Reimagining Te Whanganui-a-Tara through the lens of our community. We showcase <span class="hl">opportunities hiding in plain sight</span>. Share your ideas and DM to be featured.</p>
+        <h2 class="h2">The latest <span class="ser">ideas</span></h2>
+        <p class="lead">Follow ReThinkWelly and join the conversation by liking, commenting on or sharing our posts.</p>
       </div>
       <a class="ig-link reveal" href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg>
@@ -614,7 +629,18 @@ footer{padding-top:40px}
         })();
       </script>
     </div>
-    <p class="ig-note"><b>JOIN THE WAKA.</b> Share your ideas. Follow along at @rethinkwelly.</p>
+
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="cta gi-strip sec-line">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2">Have an idea of your <span class="ser">own?</span></h2>
+      <p class="lead">We'd love to hear what you're imagining.</p>
+    </div>
+    <a class="btn btn--lg reveal d1" href="get-involved.html?role=local">Share an idea</a>
   </div>
 </section>
 
@@ -631,7 +657,7 @@ footer{padding-top:40px}
   </div>
 </footer>
 
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a></div>
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html?role=local">Share an idea</a></div>
 
 <script>
 (function(){

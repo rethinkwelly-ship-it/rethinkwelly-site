@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ReThinkWelly | Te Whanganui-a-Tara, reimagined</title>
+<title>ReThinkWelly</title>
 <meta name="description" content="Independent, grassroots ideas for what Wellington could become.">
 
 <meta property="og:title" content="ReThinkWelly | Wellington, reimagined">
@@ -210,6 +210,7 @@ section{padding:clamp(64px,9vw,132px) 0}
 /* ---------- instagram ---------- */
 .ig{background:var(--ink);color:var(--paper);overflow:hidden}
 .ig .h2{color:var(--paper)}
+.ig .h2 .ser{color:var(--brand)}
 .ig-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:22px}
 .ig-head .lead{color:var(--muted-dark)}
 .ig-link{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;
@@ -366,7 +367,7 @@ html.js .reveal.d3{transition-delay:.27s}
   .nav-menu a{display:block;padding:14px 0;font-weight:700;font-size:1.15rem;color:var(--ink);
     text-decoration:none;border-bottom:1px solid var(--line)}
   .nav-menu a[aria-current="page"]{font-weight:800;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
-  .nav-menu .btn{display:flex;justify-content:center;margin-top:18px;border-bottom:2px solid var(--ink);padding:.85em 1.4em}
+  .nav-menu .btn{display:flex;justify-content:center;margin-top:18px;border-bottom:2px solid var(--ink);padding:.85em 1.4em;background:var(--ink);color:var(--brand)}
 }
 
 /* ---------- page intro (pages without the photo hero) ---------- */
@@ -527,10 +528,10 @@ footer{padding-top:40px}
     <div class="nav-right">
       <!-- ===== EDIT HERE: page links ===== -->
       <nav class="nav-links" aria-label="Main">
-        <a href="visions.html">Ideas</a>
+        <a href="visions.html">Imagine</a>
         <a href="about.html">About</a>
       
-        <a class="nav-suggest" href="get-involved.html?role=local">Suggest a space</a>
+        <a class="nav-suggest" href="get-involved.html?role=local">Share an idea</a>
       </nav>
       
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
@@ -541,9 +542,9 @@ footer{padding-top:40px}
   </div>
   <nav class="nav-menu" id="navMenu" aria-label="Mobile">
     <div class="wrap">
-      <a href="visions.html">Ideas</a>
+      <a href="visions.html">Imagine</a>
       <a href="about.html">About</a>
-      <a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a>
+      <a class="btn btn--brand" href="get-involved.html?role=local">Share an idea</a>
     </div>
   </nav>
 </header>
@@ -557,10 +558,10 @@ footer{padding-top:40px}
   <div class="wrap">
     <!-- ===== EDIT HERE: hero copy ===== -->
     <h1>What if Wellington dared to <span class="ser">dream?</span></h1>
-    <p class="lede">Wellington's best corners are often the ones we walk past. ReThinkWelly is an independent, grassroots initiative exploring what Wellington could become, and who could help shape it.</p>
+    <p class="lede">ReThinkWelly is an independent, grassroots initiative exploring what Wellington could become. We create concepts that help people picture new possibilities for the city and invite them to share what matters to them.</p>
     <div class="cta-row">
-      <a class="btn btn--brand btn--lg" href="visions.html">Explore the ideas</a>
-      <a class="btn btn--ghost btn--lg on-dark" href="get-involved.html?role=local">Suggest a space</a>
+      <a class="btn btn--brand btn--lg" href="visions.html">Imagine</a>
+      <a class="btn btn--ghost btn--lg on-dark" href="get-involved.html?role=local">Share an idea</a>
     </div>
   </div>
 </section>
@@ -579,7 +580,10 @@ footer{padding-top:40px}
 <section class="ig sec-line" id="instagram">
   <div class="wrap">
     <div class="ig-head reveal">
-      <h2 class="h2">The latest <span class="ser">ideas</span></h2>
+      <div>
+        <h2 class="h2">The latest <span class="ser">ideas</span></h2>
+        <p class="lead">Follow ReThinkWelly and join the conversation by liking, commenting on or sharing our posts.</p>
+      </div>
       <a class="ig-link" href="https://instagram.com/rethinkwelly" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.42.68.82.9 1.4.17.4.36 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2-.22.6-.48 1-.9 1.4-.42.42-.82.68-1.4.9-.4.17-1 .36-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42-.6-.22-1-.48-1.4-.9-.42-.42-.68-.82-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.42.82-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 4.85A4.95 4.95 0 1 0 16.95 12 4.95 4.95 0 0 0 12 7.05Zm0 1.8A3.15 3.15 0 1 1 8.85 12 3.15 3.15 0 0 1 12 8.85Zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg>
         @rethinkwelly
@@ -600,11 +604,11 @@ footer{padding-top:40px}
     <div class="steps">
       <!-- ===== EDIT HERE: steps ===== -->
       <div class="step reveal">
-        <h3>See it.</h3><p>We spot a place with potential, or you point us to one.</p></div>
+        <h3>Notice what matters.</h3><p>A place with potential. Something you miss. An idea for Wellington's future.</p></div>
       <div class="step reveal d1">
-        <h3>Shape it.</h3><p>We reimagine it as a concept, true to its setting and character.</p></div>
+        <h3>Imagine what could be.</h3><p>We create concepts that help people picture how an idea might look and feel.</p></div>
       <div class="step reveal d2">
-        <h3>Share it.</h3><p>We put it out into the city for people to react to and build on.</p></div>
+        <h3>Share it and take part.</h3><p>We invite people to respond, share their perspectives and tell us what they'd like to see more of in Wellington. Over time, we hope to create experiences people can take part in, too.</p></div>
     </div>
     <p class="more reveal"><a class="text-link" href="visions.html">Explore the ideas &rarr;</a></p>
   </div>
@@ -615,10 +619,10 @@ footer{padding-top:40px}
   <div class="wrap">
     <div class="reveal">
       <!-- ===== EDIT HERE: closing CTA copy ===== -->
-      <h2 class="h2">Know a place worth reimagining?</h2>
-      <p class="lead">Tell us where it is.</p>
+      <h2 class="h2">Have an idea for <span class="ser">Wellington?</span></h2>
+      <p class="lead">Tell us what you're imagining.</p>
     </div>
-    <a class="btn btn--lg reveal d1" href="get-involved.html?role=local">Suggest a space</a>
+    <a class="btn btn--lg reveal d1" href="get-involved.html?role=local">Share an idea</a>
   </div>
 </section>
 
@@ -635,7 +639,7 @@ footer{padding-top:40px}
   </div>
 </footer>
 
-<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html?role=local">Suggest a space</a></div>
+<div class="sticky-cta" id="stickyCta"><a class="btn btn--brand" href="get-involved.html?role=local">Share an idea</a></div>
 
 <script>
 (function(){
