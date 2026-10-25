@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Suggest a space | ReThinkWelly</title>
-<meta name="description" content="What Wellington place would you reimagine? You don't need a plan, just a place and a hunch.">
+<title>Share an idea | ReThinkWelly</title>
+<meta name="description" content="What would you love to see happen in Wellington? Share an idea. It doesn't need to be fully formed.">
 
 <meta property="og:title" content="ReThinkWelly | Wellington, reimagined">
-<meta property="og:description" content="Independent ideas for what Wellington could become. Suggest a place worth a second look.">
+<meta property="og:description" content="Independent ideas for what Wellington could become. Share what you're imagining.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rethinkwelly.com/get-involved.html">
 <meta property="og:image" content="images/courtenay-after.jpg">
@@ -509,10 +509,10 @@ footer{padding-top:40px}
     <div class="nav-right">
       <!-- ===== EDIT HERE: page links ===== -->
       <nav class="nav-links" aria-label="Main">
-        <a href="visions.html">Ideas</a>
+        <a href="visions.html">Imagine</a>
         <a href="about.html">About</a>
       
-        <a class="nav-suggest" href="get-involved.html?role=local" aria-current="page">Suggest a space</a>
+        <a class="nav-suggest" href="get-involved.html?role=local" aria-current="page">Share an idea</a>
       </nav>
       
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
@@ -523,9 +523,9 @@ footer{padding-top:40px}
   </div>
   <nav class="nav-menu" id="navMenu" aria-label="Mobile">
     <div class="wrap">
-      <a href="visions.html">Ideas</a>
+      <a href="visions.html">Imagine</a>
       <a href="about.html">About</a>
-      <a class="btn btn--brand" href="get-involved.html?role=local" aria-current="page">Suggest a space</a>
+      <a class="btn btn--brand" href="get-involved.html?role=local" aria-current="page">Share an idea</a>
     </div>
   </nav>
 </header>
@@ -537,9 +537,8 @@ footer{padding-top:40px}
   <div class="wrap">
     <div class="reveal">
       <!-- ===== EDIT HERE: page heading ===== -->
-      <h1 class="h2">What Wellington place would you <span class="ser">reimagine?</span></h1>
-      <p class="lead">Ideas shaped by the people who know these places best.</p>
-      <p class="lead">You don't need a plan, a budget or a finished idea. Just a place and a hunch. Tell us where it is and what you've noticed.</p>
+      <h1 class="h2">What would you love to see happen in Wellington?</h1>
+      <p class="lead">It could be a place reimagined, an event you'd love to see return, a project or something else entirely. Maybe it's something you miss, something you hope for, or a thought about what the city could become. It doesn't need to be fully formed. Start wherever you are.</p>
     </div>
 
     <div class="role-cards reveal d1" role="group" aria-label="Choose how you'd like to get involved">
@@ -566,38 +565,47 @@ footer{padding-top:40px}
     <div class="gi-forms" id="forms">
 
       <!-- FORM 1: I'm a local -->
-      <form class="submit gi-form" id="form-local" data-role="local" name="suggest-space" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" data-success="Thanks, that's a great place to start." hidden>
+      <form class="submit gi-form" id="form-local" data-role="local" name="suggest-space" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" data-success="Thanks for sharing what you're imagining. Follow ReThinkWelly and join the conversation by liking, commenting on or sharing our posts." hidden>
         <input type="hidden" name="form-name" value="suggest-space">
         <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <div class="field">
-          <label for="ss-where">Where is the space?</label>
-          <span class="help" id="ss-where-help">A name or a rough location is enough to start.</span>
-          <input id="ss-where" name="where" type="text" required aria-describedby="ss-where-help">
+          <label for="ss-could">What's your idea?</label>
+          <textarea id="ss-could" name="what_could_it_become" required placeholder="Tell us a little about what you're imagining."></textarea>
         </div>
         <div class="field">
-          <label for="ss-now">What's there now?</label>
-          <input id="ss-now" name="whats_there_now" type="text" required>
+          <label for="ss-where">Where could it happen? <span class="opt">(Optional)</span></label>
+          <input id="ss-where" name="where" type="text" placeholder="Share a place or area if it's relevant.">
         </div>
         <div class="field">
-          <label for="ss-could">What could it become? <span class="opt">(optional)</span></label>
-          <span class="help" id="ss-could-help">No detailed plan needed. A simple suggestion is enough.</span>
-          <textarea id="ss-could" name="what_could_it_become" aria-describedby="ss-could-help"></textarea>
+          <label for="ss-possible">What could it make possible for Wellington? <span class="opt">(Optional)</span></label>
+          <textarea id="ss-possible" name="what-possible" placeholder="What excites you about the idea?"></textarea>
         </div>
         <div class="field">
           <label for="ss-photo">Add a photo <span class="opt">(optional)</span></label>
           <input id="ss-photo" name="photo" type="file" accept="image/*">
         </div>
         <div class="field">
-          <label for="ss-name">Your name <span class="opt">(optional)</span></label>
+          <label for="ss-name">Your name <span class="opt">(Optional)</span></label>
           <input id="ss-name" name="name" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="ss-org">Your organisation <span class="opt">(Optional)</span></label>
+          <input id="ss-org" name="submitter-org" type="text" autocomplete="organization">
         </div>
         <div class="field">
           <label for="ss-email">Your email</label>
           <input id="ss-email" name="email" type="email" required autocomplete="email">
         </div>
-        <button class="btn btn--brand btn--lg" type="submit">Suggest a space</button>
+        <fieldset class="field-group" style="border:0;padding:0;margin:0 0 16px">
+          <legend style="font-size:.875rem;font-weight:500;line-height:1.4;margin-bottom:6px">If we share your idea, how may we identify you?</legend>
+          <div><label><input type="radio" name="attribution" value="name"> You can use my name.</label></div>
+          <div><label><input type="radio" name="attribution" value="org"> You can mention my organisation.</label></div>
+          <div><label><input type="radio" name="attribution" value="anonymous"> Please keep my contribution anonymous.</label></div>
+          <div><label><input type="radio" name="attribution" value="ask"> Please ask me first.</label></div>
+        </fieldset>
+        <button class="btn btn--brand btn--lg" type="submit">Share your idea</button>
         <p class="form-status" role="status" aria-live="polite"></p>
-        <p class="form-note">Independent. Not affiliated with the Council or any government body. This shares an idea. It isn't a formal development proposal.</p>
+        <p class="form-note">Sharing an idea isn't a formal development proposal.</p>
       </form>
 
       <!-- FORM 2: I'm a creative or architect -->
