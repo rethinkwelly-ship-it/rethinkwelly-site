@@ -208,11 +208,11 @@ section{padding:clamp(64px,9vw,132px) 0}
 }
 
 /* ---------- instagram ---------- */
-.ig{background:var(--ink);color:var(--paper);overflow:hidden}
-.ig .h2{color:var(--paper)}
+.ig{background:var(--paper);color:var(--ink);overflow:hidden}
+.ig .h2{color:var(--ink)}
 .ig .h2 .ser{color:var(--brand)}
 .ig-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:22px}
-.ig-head .lead{color:var(--muted-dark)}
+.ig-head .lead{color:var(--muted)}
 .ig-link{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;
   color:var(--ink);background:var(--brand);padding:.7em 1.2em;border-radius:100px;
   transition:transform .3s var(--ease), background .2s;flex:none}
@@ -226,14 +226,14 @@ section{padding:clamp(64px,9vw,132px) 0}
 @media(max-width:900px){.slide{flex-basis:50%}}
 @media(max-width:560px){.slide{flex-basis:82%}}
 .slide figure{margin:0;position:relative;border-radius:12px;overflow:hidden;
-  box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+  box-shadow:0 0 0 1px rgba(18,17,16,.1)}
 .slide img{aspect-ratio:1/1;object-fit:cover;width:100%;transition:transform .6s var(--ease)}
 .slide figure:hover img{transform:scale(1.05)}
 .slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;
   background:linear-gradient(transparent,rgba(18,17,16,.82));color:#fff;font-size:.9rem;font-weight:600}
 .dots{display:flex;gap:9px;justify-content:center;margin-top:24px}
 .dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
-  background:rgba(255,255,255,.34);transition:transform .3s var(--ease), background .3s}
+  background:rgba(18,17,16,.22);transition:transform .3s var(--ease), background .3s}
 .dots button[aria-current="true"]{background:var(--brand);transform:scale(1.4)}
 .ig-note{margin-top:22px;color:var(--muted-dark);font-size:.92rem;text-align:center}
 .ig-note b{color:#fff;font-weight:700;letter-spacing:.06em}
@@ -414,9 +414,14 @@ html.js .reveal.d3{transition-delay:.27s}
 .featured-foot .ba-cap .desc{color:var(--muted-dark)}
 
 /* ---------- home: how it works ---------- */
+.home-how{background:var(--paper);color:var(--ink)}
 .home-how .steps{margin-top:0}
-.home-how .step h3{color:var(--paper)}
+.home-how .step h3{color:var(--ink)}
+.home-how .lead{color:var(--muted)}
+.home-how .step p{color:var(--muted)}
 .home-how .more{margin-top:clamp(32px,4vw,48px)}
+.home-how .text-link{color:var(--ink)}
+.home-how .text-link:hover,.home-how .text-link:focus-visible{border-color:var(--ink)}
 
 /* ---------- home: small Instagram strip + independence note ---------- */
 .ig-strip{padding:clamp(28px,4vw,40px) 0}
