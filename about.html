@@ -270,10 +270,17 @@ form.submit .btn{width:100%;justify-content:center;margin-top:4px}
 .ba-prompt{margin-top:4px;font-family:var(--serif);font-style:italic;color:var(--ink-2);font-size:1.02rem}
 
 /* ---------- roadmap ---------- */
-#roadmap{background:var(--ink);color:var(--paper)}
-#roadmap .lead,#roadmap .roadmap-item p{color:var(--muted-dark)}
+#roadmap{background:var(--paper);color:var(--ink)}
+#roadmap .lead,#roadmap .roadmap-item p{color:var(--muted)}
 #roadmap .ri-icon{background:var(--brand);color:var(--ink)}
 #roadmap .h2 .ser{color:var(--brand)}
+/* about: one continuous white content area */
+.about-indep{background:var(--paper);color:var(--ink)}
+.about-indep .h2{color:var(--ink)}
+.about-indep .h2 .ser{color:var(--brand)}
+.about-indep .lead{color:var(--muted)}
+.about-indep .lead b{color:var(--ink)}
+.about-indep + #roadmap,#roadmap + #collaborate{border-top:1px solid var(--line)}
 .roadmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(28px,4vw,44px);margin-top:clamp(36px,5vw,56px)}
 .ri-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--brand);color:var(--ink);margin-bottom:18px}
 .ri-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
